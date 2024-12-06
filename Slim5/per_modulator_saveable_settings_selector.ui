@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>per_modulator_saveable_settings_selector</class>
+ <widget class="QGroupBox" name="per_modulator_saveable_settings_selector">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>276</width>
+    <height>387</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="1,0,0,0,0,1">
+   <item>
+    <widget class="AspectRatioPixmapLabel" name="lblSLMImage">
+     <property name="text">
+      <string>SLM Surface</string>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="grb_power">
+     <property name="title">
+      <string>Auxiliary Settings</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QCheckBox" name="chk_alignment">
+        <property name="text">
+         <string>Test Pattern</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="illumination_power_settings_selector" name="illumination" native="true"/>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="lblvoltage">
+        <property name="text">
+         <string>LCVR Voltage</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSilentDoubleSpinBox" name="voltage_max">
+        <property name="toolTip">
+         <string>max voltage</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="buttonSymbols">
+         <enum>QAbstractSpinBox::NoButtons</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="grb_beam">
+     <property name="title">
+      <string>Beam Configuration</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="distorted_donut_selector" name="slim_beam_settings" native="true"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="grb_darkfield">
+     <property name="title">
+      <string>Darkfield Generator</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="darkfield_pattern_settings_selector" name="darkfield" native="true"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="grb_psi">
+     <property name="title">
+      <string>PSI Values</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="four_frame_psi_settings_selector" name="four_frame_psi_settings" native="true"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTableView" name="pattern_table"/>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>distorted_donut_selector</class>
+   <extends>QWidget</extends>
+   <header>distorted_donut_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>AspectRatioPixmapLabel</class>
+   <extends>QLabel</extends>
+   <header>aspectratiopixmaplabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>darkfield_pattern_settings_selector</class>
+   <extends>QWidget</extends>
+   <header>darkfield_pattern_settings_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>four_frame_psi_settings_selector</class>
+   <extends>QWidget</extends>
+   <header>four_frame_psi_settings_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>illumination_power_settings_selector</class>
+   <extends>QWidget</extends>
+   <header>illumination_power_settings_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QSilentDoubleSpinBox</class>
+   <extends>QDoubleSpinBox</extends>
+   <header>qsilentdoublespinbox.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

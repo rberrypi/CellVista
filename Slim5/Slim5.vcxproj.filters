@@ -1,0 +1,1574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c;def</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="tinyxml2">
+      <UniqueIdentifier>{b4e0c946-2e53-49a1-a3f6-af1ee0f3f15d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\acquisition">
+      <UniqueIdentifier>{8973ed09-1ed0-401f-85a3-3b85089ea078}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Form Files\selectors">
+      <UniqueIdentifier>{7ca22043-f112-4406-a4ab-85033f3a78a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Form Files\main dialogs">
+      <UniqueIdentifier>{9f3ae55c-722d-4543-b5e8-92105e377165}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\devices">
+      <UniqueIdentifier>{1775ea09-1cbb-47a7-837f-f5f325d98209}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utility">
+      <UniqueIdentifier>{ba8ee318-02c0-4583-b95f-6f6d49d4a67d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\devices\cameras">
+      <UniqueIdentifier>{9c9444d0-84da-477d-b36f-f3fa2bfeba88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\devices\slms">
+      <UniqueIdentifier>{66e9b18d-45e5-4f4c-8980-76d29361705b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\devices\scopes">
+      <UniqueIdentifier>{fb4d6410-2f85-4c78-90f1-a87733a16b72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\selectors">
+      <UniqueIdentifier>{cd3a55c2-8576-4bd0-a573-fffc0a1035e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\settings">
+      <UniqueIdentifier>{abd502dc-8949-4ea8-9c65-0ac5f21890a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\capture dialogs">
+      <UniqueIdentifier>{88ea5894-1105-449e-bfe7-50c795dd7c23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\delegates">
+      <UniqueIdentifier>{73411d8c-d95b-4401-b873-5927b8928fe4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\compute engine">
+      <UniqueIdentifier>{ff3de0a1-bfc2-4188-b48c-4154c99ca2bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main gui">
+      <UniqueIdentifier>{4059805c-0154-4696-88b4-2063cb09b88d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\auxillary functions">
+      <UniqueIdentifier>{ea7afbe4-d9ef-48ed-b0e1-1e149de36a80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\slm control">
+      <UniqueIdentifier>{46a99d19-cb90-4685-80e7-0cfc44bf8e23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\render">
+      <UniqueIdentifier>{788c7895-3585-44dd-a2d6-31669526726b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tests">
+      <UniqueIdentifier>{2e82a8e0-990e-4cc1-89ea-f4d2dc8e1eb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\selectors\calibration">
+      <UniqueIdentifier>{dfd5c5b9-7308-428a-ac26-8511a2044143}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utility\qt stuff">
+      <UniqueIdentifier>{684367a5-d2d1-4742-ac13-2fade9b01cfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\machine yearning">
+      <UniqueIdentifier>{e4ff5714-b9fa-4bfd-a6b0-b17b230c65da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Form Files\slm">
+      <UniqueIdentifier>{3afb3375-31b4-4145-b114-cbba9815ed0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\devices\cameras\pco">
+      <UniqueIdentifier>{9f69d241-a85b-4c6a-afbb-acd44832039e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\devices\cameras\pco\panda">
+      <UniqueIdentifier>{71d9d655-61a7-450d-a077-beb8c96ea6fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\devices\cameras\pco\edge">
+      <UniqueIdentifier>{ce68184e-2343-4f61-b041-aceee8ace21d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="tinyxml2\tinyxml2.cpp">
+      <Filter>tinyxml2</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="acquisition_framework_af_system.cpp">
+      <Filter>Source Files\acquisition</Filter>
+    </ClCompile>
+    <ClCompile Include="acquisition_framework_async_trigger_thread.cpp">
+      <Filter>Source Files\acquisition</Filter>
+    </ClCompile>
+    <ClCompile Include="acquisition_framework_capture.cpp">
+      <Filter>Source Files\acquisition</Filter>
+    </ClCompile>
+    <ClCompile Include="acquisition_framework_capture_burst.cpp">
+      <Filter>Source Files\acquisition</Filter>
+    </ClCompile>
+    <ClCompile Include="acquisition_framework_merge_meta_data.cpp">
+      <Filter>Source Files\acquisition</Filter>
+    </ClCompile>
+    <ClCompile Include="acquisition_framework_scope.cpp">
+      <Filter>Source Files\acquisition</Filter>
+    </ClCompile>
+    <ClCompile Include="acquisition_framework_shared.cpp">
+      <Filter>Source Files\acquisition</Filter>
+    </ClCompile>
+    <ClCompile Include="andor_device.cpp">
+      <Filter>Source Files\devices\cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="arduino_retarder.cpp">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClCompile>
+    <ClCompile Include="arduino_upload_sequence.cpp">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClCompile>
+    <ClCompile Include="asi_devices.cpp">
+      <Filter>Source Files\devices\scopes</Filter>
+    </ClCompile>
+    <ClCompile Include="bns_device.cpp">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClCompile>
+    <ClCompile Include="bns_device_old.cpp">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClCompile>
+    <ClCompile Include="bsi_camera.cpp">
+      <Filter>Source Files\devices\cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="bsi_camera_common.cpp">
+      <Filter>Source Files\devices\cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="camera_config_selector.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="camera_device.cpp">
+      <Filter>Source Files\devices\cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="capture_dialog_camera_helper.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="cgal_triangulator.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="channel_editor_delegate.cpp">
+      <Filter>Source Files\delegates</Filter>
+    </ClCompile>
+    <ClCompile Include="click_surface.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="com_persitent_device.cpp">
+      <Filter>Source Files\devices</Filter>
+    </ClCompile>
+    <ClCompile Include="com_retarder_device.cpp">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClCompile>
+    <ClCompile Include="compact_light_path_holder.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="compact_light_path_selector.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="condenser_config.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="cuda_error_check.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="device_factory.cpp">
+      <Filter>Source Files\devices</Filter>
+    </ClCompile>
+    <ClCompile Include="display_selector.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="ensure_time_has_elapsed_barrier.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="fix_windows_selection.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="full_interface_gui.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="full_interface_gui_channels.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="full_interface_gui_trakem2.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="full_interface_gui_wrangle_scan.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="full_interface_gui_xml.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="exposure_sequence_control.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="emphemeral_main_gui_settings.cpp">
+      <Filter>Source Files\main gui</Filter>
+    </ClCompile>
+    <ClCompile Include="histogram_info.cpp">
+      <Filter>Source Files\main gui</Filter>
+    </ClCompile>
+    <ClCompile Include="slim_four_about.cpp">
+      <Filter>Source Files\main gui</Filter>
+    </ClCompile>
+    <ClCompile Include="slim_four_acquisition.cpp">
+      <Filter>Source Files\main gui</Filter>
+    </ClCompile>
+    <ClCompile Include="slim_four_audio_notification.cpp">
+      <Filter>Source Files\main gui</Filter>
+    </ClCompile>
+    <ClCompile Include="slim_four_gui.cpp">
+      <Filter>Source Files\main gui</Filter>
+    </ClCompile>
+    <ClCompile Include="slim_four_histogram.cpp">
+      <Filter>Source Files\main gui</Filter>
+    </ClCompile>
+    <ClCompile Include="slim_four_live_control_logic.cpp">
+      <Filter>Source Files\main gui</Filter>
+    </ClCompile>
+    <ClCompile Include="slim_four_materials.cpp">
+      <Filter>Source Files\main gui</Filter>
+    </ClCompile>
+    <ClCompile Include="slim_four_open_capture_dialogs.cpp">
+      <Filter>Source Files\main gui</Filter>
+    </ClCompile>
+    <ClCompile Include="slim_four_render.cpp">
+      <Filter>Source Files\main gui</Filter>
+    </ClCompile>
+    <ClCompile Include="slim_four_save_settings.cpp">
+      <Filter>Source Files\main gui</Filter>
+    </ClCompile>
+    <ClCompile Include="slim_four_scope.cpp">
+      <Filter>Source Files\main gui</Filter>
+    </ClCompile>
+    <ClCompile Include="line_scale.cpp">
+      <Filter>Source Files\compute engine</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics_view_zoom.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="material_picker.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="ml_remapper_selector.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="light_path_selector.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="io_work.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="io_worker.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="live_settings_store.cpp">
+      <Filter>Source Files\main gui</Filter>
+    </ClCompile>
+    <ClCompile Include="page_locked_allocator.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="phase_shift_exposure_and_delay_selector.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="pre_allocated_pool.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="radial_spectrum_widget.cpp">
+      <Filter>Source Files\main gui</Filter>
+    </ClCompile>
+    <ClCompile Include="remake_directory.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="preflight_checks.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="rectangle_model.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="render_container.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="render_engine_ij.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="scope_delay_delegate.cpp">
+      <Filter>Source Files\delegates</Filter>
+    </ClCompile>
+    <ClCompile Include="render_shifter_selector.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="roi_item.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="roi_model.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="roi_model_xml.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="save_device_state.cpp">
+      <Filter>Source Files\devices</Filter>
+    </ClCompile>
+    <ClCompile Include="render_settings_luts.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="render_widget.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="render_widget_drag.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="thread_priority.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="time_guarantee.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="time_priority.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="time_slice.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="triangulator_test.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="xyz_focus_point_item.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="xyz_focus_points_model.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="trakem2_stitching_dialog.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="tomogram_picker.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="segmentation_editor.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="system_timer_resolution.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="system_tests_make_slm_pattern.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="standalone_phase_retriever.cpp">
+      <Filter>Source Files\auxillary functions</Filter>
+    </ClCompile>
+    <ClCompile Include="dvi_slm_device.cpp">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClCompile>
+    <ClCompile Include="fly_capture_device.cpp">
+      <Filter>Source Files\devices\cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="hamamatsu_camera.cpp">
+      <Filter>Source Files\devices\cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="leica_devices.cpp">
+      <Filter>Source Files\devices\scopes</Filter>
+    </ClCompile>
+    <ClCompile Include="leica_proptools.cpp">
+      <Filter>Source Files\devices\scopes</Filter>
+    </ClCompile>
+    <ClCompile Include="nikon_devices.cpp">
+      <Filter>Source Files\devices\scopes</Filter>
+    </ClCompile>
+    <ClCompile Include="pi_devices.cpp">
+      <Filter>Source Files\devices\scopes</Filter>
+    </ClCompile>
+    <ClCompile Include="scope.cpp">
+      <Filter>Source Files\devices\scopes</Filter>
+    </ClCompile>
+    <ClCompile Include="zeiss_devices.cpp">
+      <Filter>Source Files\devices\scopes</Filter>
+    </ClCompile>
+    <ClCompile Include="slm_device.cpp">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClCompile>
+    <ClCompile Include="slm_device_custom_pattern.cpp">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClCompile>
+    <ClCompile Include="meadowlark_retarder.cpp">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClCompile>
+    <ClCompile Include="virtual_camera_device.cpp">
+      <Filter>Source Files\devices\cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="spinnaker_camera.cpp">
+      <Filter>Source Files\devices\cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="zeiss_camera.cpp">
+      <Filter>Source Files\devices\cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="thorlabs_eom.cpp">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClCompile>
+    <ClCompile Include="virtual_slm.cpp">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClCompile>
+    <ClCompile Include="trakem2_stitching_structs.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="system_tests.cpp">
+      <Filter>Source Files\tests</Filter>
+    </ClCompile>
+    <ClCompile Include="trakem2_xy_selector.cpp">
+      <Filter>Source Files\selectors\calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="path_load_save_selector.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="full_interface_gui_save_dialogs.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="displacement_vectors_selector.cpp">
+      <Filter>Source Files\selectors\calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="calibration_info_selector.cpp">
+      <Filter>Source Files\selectors\calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="widget_tests.cpp">
+      <Filter>Source Files\tests</Filter>
+    </ClCompile>
+    <ClCompile Include="nikon_devices2.cpp">
+      <Filter>Source Files\devices\scopes</Filter>
+    </ClCompile>
+    <ClCompile Include="processing_quad_selector.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="demosaic.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="phase_processing.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="denoise.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="double_spin_box_delegate.cpp">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="directory_validator.cpp">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="file_line_edit.cpp">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="file_validator.cpp">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="limited_spinning_box_delegate.cpp">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="folder_line_edit.cpp">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="QApplication_with_debug.cpp">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="qcustomplot.cpp">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="snap_to_min_spinbox.cpp">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="processing_quad.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="phase_retrieval.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="filename_grouping_mode.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="slm_device_alignment_pattern.cpp">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClCompile>
+    <ClCompile Include="slm_holder.cpp">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClCompile>
+    <ClCompile Include="slm_holder_custom_patterns.cpp">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClCompile>
+    <ClCompile Include="channel_settings.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="channel_settings_serialization.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="settings_file.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="settings_file_serialization.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="ml_structs.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="instrument_configuration.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="live_gui_settings.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="band_pass_settings_selector.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="phase_shift_exposure_and_delay.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="scope_channel_drive_settings.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="compute_and_scope_settings.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="dpm_settings.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="modulator_configuration.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="render_settings.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="camera_holder.cpp">
+      <Filter>Source Files\devices\cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="virtual_camera_settings.cpp">
+      <Filter>Source Files\devices\cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="camera_config.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="acquisition.cpp">
+      <Filter>Source Files\acquisition</Filter>
+    </ClCompile>
+    <ClCompile Include="scratch_pad.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="camera_contrast_features.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="slm_control.cpp">
+      <Filter>Source Files\slm control</Filter>
+    </ClCompile>
+    <ClCompile Include="dpm_settings_selector.cpp">
+      <Filter>Source Files\slm control</Filter>
+    </ClCompile>
+    <ClCompile Include="material_info_selector.cpp">
+      <Filter>Source Files\slm control</Filter>
+    </ClCompile>
+    <ClCompile Include="slm_pattern_generation_selector.cpp">
+      <Filter>Source Files\slm control</Filter>
+    </ClCompile>
+    <ClCompile Include="pattern_generators.cpp">
+      <Filter>Source Files\slm control</Filter>
+    </ClCompile>
+    <ClCompile Include="scope_compute_settings_selector.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="pixel_dimensions_selector.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="settings_file_holder.cpp">
+      <Filter>Source Files\slm control</Filter>
+    </ClCompile>
+    <ClCompile Include="scope_compute_settings.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="fixed_modulator_settings_selector.cpp">
+      <Filter>Source Files\slm control</Filter>
+    </ClCompile>
+    <ClCompile Include="per_modulator_saveable_settings_selector.cpp">
+      <Filter>Source Files\slm control</Filter>
+    </ClCompile>
+    <ClCompile Include="slm_pattern_model.cpp">
+      <Filter>Source Files\slm control</Filter>
+    </ClCompile>
+    <ClCompile Include="aspectratiopixmaplabel.cpp">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="distorted_donut_selector.cpp">
+      <Filter>Source Files\slm control</Filter>
+    </ClCompile>
+    <ClCompile Include="darkfield_pattern_settings_selector.cpp">
+      <Filter>Source Files\slm control</Filter>
+    </ClCompile>
+    <ClCompile Include="four_frame_psi_settings_selector.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="illumination_power_settings_selector.cpp">
+      <Filter>Source Files\slm control</Filter>
+    </ClCompile>
+    <ClCompile Include="four_frame_psi_setting_selector.cpp">
+      <Filter>Source Files\selectors</Filter>
+    </ClCompile>
+    <ClCompile Include="psi_function_pairs_selector.cpp">
+      <Filter>Source Files\slm control</Filter>
+    </ClCompile>
+    <ClCompile Include="psi_function_pair_selector.cpp">
+      <Filter>Source Files\slm control</Filter>
+    </ClCompile>
+    <ClCompile Include="slm_control_channels.cpp">
+      <Filter>Source Files\slm control</Filter>
+    </ClCompile>
+    <ClCompile Include="fixed_hardware_settings.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="QSilentDoubleSpinBox.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="double_spin_box_settings.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="qli_styled_slim_application_with_debug.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="live_capture_engine.cpp">
+      <Filter>Source Files\main gui</Filter>
+    </ClCompile>
+    <ClCompile Include="capture_modes.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="slim_four_channel_settings.cpp">
+      <Filter>Source Files\main gui</Filter>
+    </ClCompile>
+    <ClCompile Include="frame_meta_data.cpp">
+      <Filter>Source Files\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="spin_box_fixed_increment.cpp">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="snapshot_label.cpp">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="full_interface_gui_storage_info.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="safe_move_to_screen.cpp">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="full_interface_slim4_gui.cpp">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="qli_runtime_error.cpp">
+      <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="quick_scope_test.cpp">
+      <Filter>Source Files\tests</Filter>
+    </ClCompile>
+    <ClCompile Include="itaSettings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pco_edge.cpp">
+      <Filter>Source Files\devices\cameras\pco\edge</Filter>
+    </ClCompile>
+    <ClCompile Include="pco.cpp">
+      <Filter>Source Files\devices\cameras\pco</Filter>
+    </ClCompile>
+    <ClCompile Include="pco_panda.cpp">
+      <Filter>Source Files\devices\cameras\pco\panda</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="tinyxml2\tinyxml2.h">
+      <Filter>tinyxml2</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="acquisition.h">
+      <Filter>Source Files\acquisition</Filter>
+    </ClInclude>
+    <ClInclude Include="acquisition_framework.h">
+      <Filter>Source Files\acquisition</Filter>
+    </ClInclude>
+    <ClInclude Include="approx_equals.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="arduino_retarder.h">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClInclude>
+    <ClInclude Include="asi_devices.h">
+      <Filter>Source Files\devices\scopes</Filter>
+    </ClInclude>
+    <ClInclude Include="bns_device.h">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClInclude>
+    <ClInclude Include="background_update_functors.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="bns_device_old.h">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClInclude>
+    <ClInclude Include="break_into_ranges.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="bsi_camera_common.h">
+      <Filter>Source Files\devices\cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="capture_dialog_camera_helper.h">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="cgal_triangulator.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="camera_frame.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="capture_item.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="capture_modes.h">
+      <Filter>Source Files\acquisition</Filter>
+    </ClInclude>
+    <ClInclude Include="chrono_converters.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="clamp_and_scale.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="com_persistent_device.h">
+      <Filter>Source Files\devices</Filter>
+    </ClInclude>
+    <ClInclude Include="com_retarder_device.h">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClInclude>
+    <ClInclude Include="compute_engine.h">
+      <Filter>Source Files\compute engine</Filter>
+    </ClInclude>
+    <ClInclude Include="compute_engine_demosaic.h">
+      <Filter>Source Files\compute engine</Filter>
+    </ClInclude>
+    <ClInclude Include="compute_engine_shared.h">
+      <Filter>Source Files\compute engine</Filter>
+    </ClInclude>
+    <ClInclude Include="cuda_error_check.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="cufft_error_check.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="cufft_shared.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="custom_layer.h">
+      <Filter>Source Files\machine yearning</Filter>
+    </ClInclude>
+    <ClInclude Include="device_factory.h">
+      <Filter>Source Files\devices</Filter>
+    </ClInclude>
+    <ClInclude Include="ensure_time_has_elapsed_barrier.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="dpm_gpu_structs.h">
+      <Filter>Source Files\compute engine</Filter>
+    </ClInclude>
+    <ClInclude Include="fourier_filter.h">
+      <Filter>Source Files\compute engine</Filter>
+    </ClInclude>
+    <ClInclude Include="gui_message.h">
+      <Filter>Source Files\main gui</Filter>
+    </ClInclude>
+    <ClInclude Include="emphemeral_main_gui_settings.h">
+      <Filter>Source Files\main gui</Filter>
+    </ClInclude>
+    <ClInclude Include="grid_steps.h">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="histogram_info.h">
+      <Filter>Source Files\main gui</Filter>
+    </ClInclude>
+    <ClInclude Include="internal_windows_timer_helpers.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="haar_wavelet_gpu.h">
+      <Filter>Source Files\machine yearning</Filter>
+    </ClInclude>
+    <ClInclude Include="line_scale.h">
+      <Filter>Source Files\compute engine</Filter>
+    </ClInclude>
+    <ClInclude Include="npp_error_check.h">
+      <Filter>Source Files\compute engine</Filter>
+    </ClInclude>
+    <ClInclude Include="npp_histogram.h">
+      <Filter>Source Files\compute engine</Filter>
+    </ClInclude>
+    <ClInclude Include="other_patterns.h">
+      <Filter>Source Files\compute engine</Filter>
+    </ClInclude>
+    <ClInclude Include="pseudo_spectrum.h">
+      <Filter>Source Files\compute engine</Filter>
+    </ClInclude>
+    <ClInclude Include="polarization_filters.h">
+      <Filter>Source Files\compute engine</Filter>
+    </ClInclude>
+    <ClInclude Include="io_work.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="live_settings_store.h">
+      <Filter>Source Files\main gui</Filter>
+    </ClInclude>
+    <ClInclude Include="ml_shared.h">
+      <Filter>Source Files\machine yearning</Filter>
+    </ClInclude>
+    <ClInclude Include="ml_transformer.h">
+      <Filter>Source Files\machine yearning</Filter>
+    </ClInclude>
+    <ClInclude Include="h5file.hpp">
+      <Filter>Source Files\machine yearning</Filter>
+    </ClInclude>
+    <ClInclude Include="page_locked_allocator.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="pitched_memory_unsafe_pointer.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="pre_allocated_pool.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="radial_spectrum_widget.h">
+      <Filter>Source Files\main gui</Filter>
+    </ClInclude>
+    <ClInclude Include="remake_directory.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="render_engine.h">
+      <Filter>Source Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="render_engine_pass_through.h">
+      <Filter>Source Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="thrust_gpu_var.h">
+      <Filter>Source Files\compute engine</Filter>
+    </ClInclude>
+    <ClInclude Include="thrust_resize.h">
+      <Filter>Source Files\compute engine</Filter>
+    </ClInclude>
+    <ClInclude Include="roi_item.h">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="save_device_state.h">
+      <Filter>Source Files\devices</Filter>
+    </ClInclude>
+    <ClInclude Include="slim_gpu_structs.h">
+      <Filter>Source Files\compute engine</Filter>
+    </ClInclude>
+    <ClInclude Include="unet_engine_v1.h">
+      <Filter>Source Files\machine yearning</Filter>
+    </ClInclude>
+    <ClInclude Include="unet_engine_v2.h">
+      <Filter>Source Files\machine yearning</Filter>
+    </ClInclude>
+    <ClInclude Include="start_stop.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="thread_priority.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="time_guarantee.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="time_priority.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="time_slice.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="xyz_focus_point_item.h">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="trakem2_stitching_structs.h">
+      <Filter>Source Files\capture dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="write_tif.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="write_debug_gpu.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="windows_sleep.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="snake_iterator.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="dvi_slm_device.h">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClInclude>
+    <ClInclude Include="leica_devices.h">
+      <Filter>Source Files\devices\scopes</Filter>
+    </ClInclude>
+    <ClInclude Include="nikon_devices.h">
+      <Filter>Source Files\devices\scopes</Filter>
+    </ClInclude>
+    <ClInclude Include="nikon_devices2.h">
+      <Filter>Source Files\devices\scopes</Filter>
+    </ClInclude>
+    <ClInclude Include="pi_devices.h">
+      <Filter>Source Files\devices\scopes</Filter>
+    </ClInclude>
+    <ClInclude Include="virtual_scope_devices.h">
+      <Filter>Source Files\devices\scopes</Filter>
+    </ClInclude>
+    <ClInclude Include="zeiss_devices.h">
+      <Filter>Source Files\devices\scopes</Filter>
+    </ClInclude>
+    <ClInclude Include="slm_device.h">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClInclude>
+    <ClInclude Include="meadowlark_retarder.h">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClInclude>
+    <ClInclude Include="virtual_camera_shared.h">
+      <Filter>Source Files\devices\cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="thorlabs_eom.h">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClInclude>
+    <ClInclude Include="virtual_slm.h">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClInclude>
+    <ClInclude Include="compact_light_path.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="folder_line_edit.h">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="snap_to_min_spinbox.h">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="modulator_configuration.h">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClInclude>
+    <ClInclude Include="slm_state.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="slm_enums.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="common_limits.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="frame_size.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="slm_holder.h">
+      <Filter>Source Files\devices\slms</Filter>
+    </ClInclude>
+    <ClInclude Include="fixed_hardware_settings.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="channel_settings.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="settings_file.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="instrument_configuration.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="compute_and_scope_state.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="phase_processing.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="display_settings.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="frame_meta_data.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="capture_cycle.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="live_gui_settings.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="phase_shift_exposure_and_delay.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="render_settings.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="gui_message_kind.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="camera_config.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="camera_holder.h">
+      <Filter>Source Files\devices\cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="filename_grouping_mode.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="ml_structs.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="virtual_camera_settings.h">
+      <Filter>Source Files\devices\cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="fixed_hardware_settings_cerealization.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="boost_cerealization.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="live_gui_settings_cerealization.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="per_modulator_saveable_settings_cerealization.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="program_config.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="scope_compute_settings.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="QSilentDoubleSpinBox.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="double_spin_box_settings.h">
+      <Filter>Source Files\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="qt_layout_disable.h">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="safe_move_to_screen.h">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="qli_runtime_error.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="unet_engine_v3.h">
+      <Filter>Source Files\machine yearning</Filter>
+    </ClInclude>
+    <ClInclude Include="ueffunet_engine_onnx_v1.h">
+      <Filter>Source Files\machine yearning</Filter>
+    </ClInclude>
+    <ClInclude Include="scale.h">
+      <Filter>Source Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="ml_timing.h">
+      <Filter>Source Files\machine yearning</Filter>
+    </ClInclude>
+    <ClInclude Include="npp_non_owning_buffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pco.h">
+      <Filter>Source Files\devices\cameras\pco</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Slim5.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Slim2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="compute_engine_apply_background.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="compute_engine_demosaic.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="compute_engine_median_filter.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="compute_engine_phase_modes.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="compute_engine_queue.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="compute_engine_queue_denoise.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="compute_engine_queue_pre_allocate.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="compute_engine_queue_shifter.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="compute_engine_rescale.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="compute_plan_gpu_var.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="cufft_shared.cu">
+      <Filter>Source Files\utility</Filter>
+    </CudaCompile>
+    <CudaCompile Include="dpm_gpu_structs.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="fourier_filter.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="haar_wavelet_gpu.cu">
+      <Filter>Source Files\machine yearning</Filter>
+    </CudaCompile>
+    <CudaCompile Include="npp_error_check.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="npp_histogram.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="other_patterns.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="psuedo_spectrum.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="polarization_filters.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="polarizer_demosaic.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="ml_transformer.cu">
+      <Filter>Source Files\machine yearning</Filter>
+    </CudaCompile>
+    <CudaCompile Include="read_buffer.cu">
+      <Filter>Source Files\utility</Filter>
+    </CudaCompile>
+    <CudaCompile Include="render_engine_pass_through.cu">
+      <Filter>Source Files\render</Filter>
+    </CudaCompile>
+    <CudaCompile Include="render_widget_histogram.cu">
+      <Filter>Source Files\render</Filter>
+    </CudaCompile>
+    <CudaCompile Include="render_widget.cu">
+      <Filter>Source Files\render</Filter>
+    </CudaCompile>
+    <CudaCompile Include="slim_gpu_structs.cu">
+      <Filter>Source Files\compute engine</Filter>
+    </CudaCompile>
+    <CudaCompile Include="write_debug_gpu.cu">
+      <Filter>Source Files\utility</Filter>
+    </CudaCompile>
+    <CudaCompile Include="write_tif.cu">
+      <Filter>Source Files\utility</Filter>
+    </CudaCompile>
+    <CudaCompile Include="auxillary_ml_processor.cu">
+      <Filter>Source Files\auxillary functions</Filter>
+    </CudaCompile>
+    <CudaCompile Include="background_buffer_holder.cu">
+      <Filter>Source Files\settings</Filter>
+    </CudaCompile>
+    <CudaCompile Include="virtual_camera_device_npp.cu">
+      <Filter>Source Files\devices\cameras</Filter>
+    </CudaCompile>
+    <CudaCompile Include="device_factory_shared.cu">
+      <Filter>Source Files\devices</Filter>
+    </CudaCompile>
+    <CudaCompile Include="test_compilation.cu">
+      <Filter>Source Files\tests</Filter>
+    </CudaCompile>
+    <CudaCompile Include="compute_engine_shared.cu">
+      <Filter>Source Files\settings</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="tomogram_picker.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="semantic_feature_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="segmentation_editor.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="scope_location_xyz_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="render_shifter_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="render_settings_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="render_modifications_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="raw_io_work_meta_data_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="psi_function_pair_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="phase_shift_exposure_and_delay_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ml_settings_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ml_remapper_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="microscope_move_action_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="microscope_light_path_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="material_picker.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="light_path_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="dpm_settings_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="display_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="custom_pattern_holder.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="condenser_config.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="camera_aoi_selector.ui">
+      <Filter>Form Files\selectors</Filter>
+    </QtUic>
+    <QtUic Include="compact_light_path_selector.ui">
+      <Filter>Form Files\selectors</Filter>
+    </QtUic>
+    <QtUic Include="condenser_config_selector.ui">
+      <Filter>Form Files\selectors</Filter>
+    </QtUic>
+    <QtUic Include="full_interface_gui.ui">
+      <Filter>Form Files\main dialogs</Filter>
+    </QtUic>
+    <QtUic Include="slim_four.ui">
+      <Filter>Form Files\main dialogs</Filter>
+    </QtUic>
+    <QtUic Include="trakem2_stitching_dialog.ui">
+      <Filter>Form Files\main dialogs</Filter>
+    </QtUic>
+    <QtUic Include="displacement_vectors_selector.ui">
+      <Filter>Form Files\selectors</Filter>
+    </QtUic>
+    <QtUic Include="trakem2_xy_selector.ui">
+      <Filter>Form Files\selectors</Filter>
+    </QtUic>
+    <QtUic Include="calibration_info_selector.ui">
+      <Filter>Form Files\selectors</Filter>
+    </QtUic>
+    <QtUic Include="path_load_save_selector.ui">
+      <Filter>Form Files\selectors</Filter>
+    </QtUic>
+    <QtUic Include="processing_quad_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="band_pass_settings_selector.ui">
+      <Filter>Form Files\selectors</Filter>
+    </QtUic>
+    <QtUic Include="settings_file_holder.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="slm_control.ui">
+      <Filter>Form Files\slm</Filter>
+    </QtUic>
+    <QtUic Include="slm_pattern_generation_selector.ui">
+      <Filter>Form Files\slm</Filter>
+    </QtUic>
+    <QtUic Include="pixel_dimensions_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="scope_compute_settings_selector.ui">
+      <Filter>Form Files\slm</Filter>
+    </QtUic>
+    <QtUic Include="material_info_selector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="psi_function_pairs_selector.ui">
+      <Filter>Form Files\slm</Filter>
+    </QtUic>
+    <QtUic Include="illumination_power_settings_selector.ui">
+      <Filter>Form Files\slm</Filter>
+    </QtUic>
+    <QtUic Include="four_frame_psi_settings_selector.ui">
+      <Filter>Form Files\slm</Filter>
+    </QtUic>
+    <QtUic Include="four_frame_psi_setting_selector.ui">
+      <Filter>Form Files\slm</Filter>
+    </QtUic>
+    <QtUic Include="distorted_donut_selector.ui">
+      <Filter>Form Files\slm</Filter>
+    </QtUic>
+    <QtUic Include="darkfield_pattern_settings_selector.ui">
+      <Filter>Form Files\slm</Filter>
+    </QtUic>
+    <QtUic Include="per_pattern_modulator_settings_selector.ui">
+      <Filter>Form Files\slm</Filter>
+    </QtUic>
+    <QtUic Include="per_modulator_saveable_settings_selector.ui">
+      <Filter>Form Files\slm</Filter>
+    </QtUic>
+    <QtUic Include="fixed_modulator_settings_selector.ui">
+      <Filter>Form Files\slm</Filter>
+    </QtUic>
+    <QtUic Include="itaSettings.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="andor_device.h">
+      <Filter>Source Files\devices\cameras</Filter>
+    </QtMoc>
+    <QtMoc Include="bsi_camera.h">
+      <Filter>Source Files\devices\cameras</Filter>
+    </QtMoc>
+    <QtMoc Include="camera_config_selector.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="camera_device.h">
+      <Filter>Source Files\devices\cameras</Filter>
+    </QtMoc>
+    <QtMoc Include="channel_editor_delegate.h">
+      <Filter>Source Files\delegates</Filter>
+    </QtMoc>
+    <QtMoc Include="click_surface.h">
+      <Filter>Source Files\capture dialogs</Filter>
+    </QtMoc>
+    <QtMoc Include="compact_light_path_holder.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="compact_light_path_selector.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="condenser_config.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="display_selector.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="full_interface_gui.h">
+      <Filter>Source Files\capture dialogs</Filter>
+    </QtMoc>
+    <QtMoc Include="exposure_sequence_control.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="slim_four.h">
+      <Filter>Source Files\main gui</Filter>
+    </QtMoc>
+    <QtMoc Include="graphics_view_zoom.h">
+      <Filter>Source Files\capture dialogs</Filter>
+    </QtMoc>
+    <QtMoc Include="material_picker.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="ml_remapper_selector.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="light_path_selector.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="io_worker.h">
+      <Filter>Source Files\utility</Filter>
+    </QtMoc>
+    <QtMoc Include="phase_shift_exposure_and_delay_selector.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="rectangle_model.h">
+      <Filter>Source Files\capture dialogs</Filter>
+    </QtMoc>
+    <QtMoc Include="render_container.h">
+      <Filter>Source Files\render</Filter>
+    </QtMoc>
+    <QtMoc Include="scope_delay_delegate.h">
+      <Filter>Source Files\delegates</Filter>
+    </QtMoc>
+    <QtMoc Include="render_shifter_selector.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="roi_model.h">
+      <Filter>Source Files\capture dialogs</Filter>
+    </QtMoc>
+    <QtMoc Include="render_widget.h">
+      <Filter>Source Files\render</Filter>
+    </QtMoc>
+    <QtMoc Include="xyz_focus_points_model.h">
+      <Filter>Source Files\capture dialogs</Filter>
+    </QtMoc>
+    <QtMoc Include="trakem2_stitching_dialog.h">
+      <Filter>Source Files\capture dialogs</Filter>
+    </QtMoc>
+    <QtMoc Include="tomogram_picker.h">
+      <Filter>Source Files\capture dialogs</Filter>
+    </QtMoc>
+    <QtMoc Include="segmentation_editor.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="fly_capture_device.h">
+      <Filter>Source Files\devices\cameras</Filter>
+    </QtMoc>
+    <QtMoc Include="scope.h">
+      <Filter>Source Files\devices\scopes</Filter>
+    </QtMoc>
+    <QtMoc Include="virtual_camera_device.h">
+      <Filter>Source Files\devices\cameras</Filter>
+    </QtMoc>
+    <QtMoc Include="spinnaker_camera.h">
+      <Filter>Source Files\devices\cameras</Filter>
+    </QtMoc>
+    <QtMoc Include="zeiss_camera.h">
+      <Filter>Source Files\devices\cameras</Filter>
+    </QtMoc>
+    <QtMoc Include="trakem2_xy_selector.h">
+      <Filter>Source Files\selectors\calibration</Filter>
+    </QtMoc>
+    <QtMoc Include="path_load_save_selector.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="displacement_vectors_selector.h">
+      <Filter>Source Files\selectors\calibration</Filter>
+    </QtMoc>
+    <QtMoc Include="calibration_info_selector.h">
+      <Filter>Source Files\selectors\calibration</Filter>
+    </QtMoc>
+    <QtMoc Include="processing_quad_selector.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="double_spin_box_delegate.h">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </QtMoc>
+    <QtMoc Include="double_spin_box_longer.h">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </QtMoc>
+    <QtMoc Include="directory_validator.h">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </QtMoc>
+    <QtMoc Include="file_line_edit.h">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </QtMoc>
+    <QtMoc Include="file_validator.h">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </QtMoc>
+    <QtMoc Include="limited_spinning_box_delegate.h">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </QtMoc>
+    <QtMoc Include="QApplication_with_debug.h">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </QtMoc>
+    <QtMoc Include="qcustomplot.h">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </QtMoc>
+    <QtMoc Include="place_holder_widget.h">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </QtMoc>
+    <QtMoc Include="spin_box_fixed_increment.h">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </QtMoc>
+    <QtMoc Include="band_pass_settings_selector.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="slm_control.h">
+      <Filter>Source Files\slm control</Filter>
+    </QtMoc>
+    <QtMoc Include="dpm_settings_selector.h">
+      <Filter>Source Files\slm control</Filter>
+    </QtMoc>
+    <QtMoc Include="material_info_selector.h">
+      <Filter>Source Files\slm control</Filter>
+    </QtMoc>
+    <QtMoc Include="scope_compute_settings_selector.h">
+      <Filter>Source Files\slm control</Filter>
+    </QtMoc>
+    <QtMoc Include="slm_pattern_generation_selector.h">
+      <Filter>Source Files\slm control</Filter>
+    </QtMoc>
+    <QtMoc Include="pixel_dimensions_selector.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="settings_file_holder.h">
+      <Filter>Source Files\slm control</Filter>
+    </QtMoc>
+    <QtMoc Include="fixed_modulator_settings_selector.h">
+      <Filter>Source Files\slm control</Filter>
+    </QtMoc>
+    <QtMoc Include="per_modulator_saveable_settings_selector.h">
+      <Filter>Source Files\slm control</Filter>
+    </QtMoc>
+    <QtMoc Include="slm_pattern_model.h">
+      <Filter>Source Files\slm control</Filter>
+    </QtMoc>
+    <QtMoc Include="aspectratiopixmaplabel.h">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </QtMoc>
+    <QtMoc Include="distorted_donut_selector.h">
+      <Filter>Source Files\slm control</Filter>
+    </QtMoc>
+    <QtMoc Include="darkfield_pattern_settings_selector.h">
+      <Filter>Source Files\slm control</Filter>
+    </QtMoc>
+    <QtMoc Include="four_frame_psi_settings_selector.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="illumination_power_settings_selector.h">
+      <Filter>Source Files\slm control</Filter>
+    </QtMoc>
+    <QtMoc Include="four_frame_psi_setting_selector.h">
+      <Filter>Source Files\selectors</Filter>
+    </QtMoc>
+    <QtMoc Include="psi_function_pairs_selector.h">
+      <Filter>Source Files\slm control</Filter>
+    </QtMoc>
+    <QtMoc Include="psi_function_pair_selector.h">
+      <Filter>Source Files\slm control</Filter>
+    </QtMoc>
+    <QtMoc Include="qli_styled_slim_application_with_debug.h">
+      <Filter>Source Files\utility</Filter>
+    </QtMoc>
+    <QtMoc Include="live_capture_engine.h">
+      <Filter>Source Files\main gui</Filter>
+    </QtMoc>
+    <QtMoc Include="snapshot_label.h">
+      <Filter>Source Files\utility\qt stuff</Filter>
+    </QtMoc>
+    <QtMoc Include="hamamatsu_camera.h">
+      <Filter>Source Files\devices\cameras</Filter>
+    </QtMoc>
+    <QtMoc Include="itaSettings.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="pco_edge.h">
+      <Filter>Source Files\devices\cameras\pco\edge</Filter>
+    </QtMoc>
+    <QtMoc Include="pco_panda.h">
+      <Filter>Source Files\devices\cameras\pco\panda</Filter>
+    </QtMoc>
+  </ItemGroup>
+</Project>

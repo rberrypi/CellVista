@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>compact_light_path_selector</class>
+ <widget class="QWidget" name="compact_light_path_selector">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>904</width>
+    <height>671</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="3">
+
+       <widget class="band_pass_settings_selector" name="wdg_band_pass_filter" native="true"/>
+
+
+     </item>
+     <item row="0" column="3">
+      <widget class="camera_config_selector" name="wdg_roi" native="true"/>
+     </item>
+     <item row="0" column="6">
+      <widget class="QPushButton" name="btnRemove">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip">
+        <string>Remove channel</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="slim5.qrc">
+         <normaloff>:/images/minus.svg</normaloff>:/images/minus.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="displayID">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="channel_name">
+         <property name="toolTip">
+          <string>Channel Suffix</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="placeholderText">
+          <string>Enter Channel Name</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="0" colspan="2">
+      <widget class="processing_quad_selector" name="processing_quad" native="true"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="display_selector" name="wdg_display_selector" native="true"/>
+   </item>
+   <item>
+    <widget class="exposure_sequence_control" name="wdg_exposure_sequence" native="true"/>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="light_path_selector" name="wdg_light_path" native="true"/>
+     </item>
+     <item>
+      <widget class="QDoubleSpinBox" name="qsb_zee_offset">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+       <property name="prefix">
+        <string>Z+ </string>
+       </property>
+       <property name="minimum">
+        <double>-9999.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>9999.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.500000000000000</double>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>camera_config_selector</class>
+   <extends>QWidget</extends>
+   <header>camera_config_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>processing_quad_selector</class>
+   <extends>QWidget</extends>
+   <header>processing_quad_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>display_selector</class>
+   <extends>QWidget</extends>
+   <header>display_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>exposure_sequence_control</class>
+   <extends>QWidget</extends>
+   <header>exposure_sequence_control.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>light_path_selector</class>
+   <extends>QWidget</extends>
+   <header>light_path_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>band_pass_settings_selector</class>
+   <extends>QWidget</extends>
+   <header>band_pass_settings_selector.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="slim5.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,1036 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Mikhail E. Kandel</author>
+ <class>slim_four</class>
+ <widget class="QMainWindow" name="slim_four">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>341</width>
+    <height>1099</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Live Display</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../Users/Misha/.designer/backup/Slim2.ico</normaloff>../../Users/Misha/.designer/backup/Slim2.ico</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+   </layout>
+  </widget>
+  <widget class="QDockWidget" name="ToolBarDock">
+   <property name="features">
+    <set>QDockWidget::NoDockWidgetFeatures</set>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <layout class="QVBoxLayout" name="verticalLayout_5" stretch="1,0,0,0,0,0">
+     <item>
+      <widget class="QFrame" name="contrast_frame">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,1,0,0,0,0">
+        <item>
+         <widget class="processing_quad_selector" name="processing_quad" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>32</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="camera_config_selector" name="cmb_camera_config" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>32</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCustomPlot" name="widgetHistogram" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border: 1px solid red;</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_8"/>
+         </widget>
+        </item>
+        <item>
+         <widget class="display_selector" name="wdg_display_settings" native="true"/>
+        </item>
+        <item>
+         <widget class="QScrollArea" name="scrollArea">
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QAbstractScrollArea::AdjustToContents</enum>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="exposure_sequence_control" name="wdg_phase_shift_exposures_and_delays">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>266</width>
+             <height>85</height>
+            </rect>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="bandpass_layout" stretch="0,0,0,0">
+          <item>
+           <widget class="band_pass_settings_selector" name="wdg_band_pass_filter" native="true"/>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_set_bg">
+            <property name="toolTip">
+             <string>Use a fixed background for phase reference, take background before</string>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/plus.svg</normaloff>:/images/plus.svg</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_clear_bg">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/minus.svg</normaloff>:/images/minus.svg</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="grdContrast">
+          <item row="1" column="3">
+           <widget class="QPushButton" name="btnSetEight">
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/7.svg</normaloff>:/images/7.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QPushButton" name="btnSetFive">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/4.svg</normaloff>:/images/4.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <widget class="QPushButton" name="btnSetNine">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/8.svg</normaloff>:/images/8.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QPushButton" name="btn_channel_reset">
+            <property name="toolTip">
+             <string>Reset channel to default</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/loading11.svg</normaloff>:/images/loading11.svg</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QPushButton" name="btnFixSkip">
+            <property name="toolTip">
+             <string>Reboot camera</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/garage-wrenches.svg</normaloff>:/images/garage-wrenches.svg</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QPushButton" name="btnSetOne">
+            <property name="toolTip">
+             <string extracomment="Preset 1, memory"/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/0.svg</normaloff>:/images/0.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QPushButton" name="btn_live_ft">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="toolTip">
+             <string>Power spectrum (log1p)</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/musical40.svg</normaloff>:/images/musical40.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QPushButton" name="btnSetThree">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/2.svg</normaloff>:/images/2.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QPushButton" name="btnMaterialSettings">
+            <property name="toolTip">
+             <string>Configure maps display (mass, height, ref. index)</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/balance13.svg</normaloff>:/images/balance13.svg</iconset>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <widget class="QPushButton" name="btn_live_autocontrast">
+            <property name="toolTip">
+             <string>Auto adjusting auto contrast</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/contrast-live.svg</normaloff>:/images/contrast-live.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="btnSetTwo">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/1.svg</normaloff>:/images/1.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QPushButton" name="btnSetSix">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/5.svg</normaloff>:/images/5.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QPushButton" name="btnSetFour">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/3.svg</normaloff>:/images/3.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QPushButton" name="btn_cross_hairs">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="toolTip">
+             <string>crosshair</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/plus79.svg</normaloff>:/images/plus79.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QPushButton" name="btnSetSeven">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/6.svg</normaloff>:/images/6.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="4">
+           <widget class="QPushButton" name="btn_auto_contrast">
+            <property name="toolTip">
+             <string>Auto contrast</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/contrast.svg</normaloff>:/images/contrast.svg</iconset>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QPushButton" name="btnCooling">
+            <property name="toolTip">
+             <string>Toggle camera cooling</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/snowflake.svg</normaloff>:/images/snowflake.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="QPushButton" name="btn_ita">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="toolTip">
+             <string>Image Triggered Acquisition</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/its.svg</normaloff>:/images/its.svg</iconset>
+            </property>
+            <property name="checkable">
+             <bool>false</bool>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="frame_snapshot">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QHBoxLayout" name="snapshot_layout">
+          <item>
+           <widget class="snapshot_label" name="snapshot_text">
+            <property name="toolTip">
+             <string>Desired name of snapshot</string>
+            </property>
+            <property name="text">
+             <string>Snapshot</string>
+            </property>
+            <property name="placeholderText">
+             <string>Enter snapshot root filename</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnSnap">
+            <property name="toolTip">
+             <string>Snapshot</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/camera.svg</normaloff>:/images/camera.svg</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="frame_ml">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_3" columnminimumwidth="1,0">
+        <item row="1" column="0">
+         <widget class="render_shifter_selector" name="wdg_render_shifter" native="true"/>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="btnSnapML">
+          <property name="toolTip">
+           <string>Save ML</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="slim5.qrc">
+            <normaloff>:/images/camera.svg</normaloff>:/images/camera.svg</iconset>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="2">
+         <widget class="ml_remapper_selector" name="wdg_ml_remapper" native="true"/>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="frame_scanning">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QPushButton" name="btnFullInterface">
+          <property name="text">
+           <string>Automated Scanning</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QProgressBar" name="progressBarCapture">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="value">
+               <number>100</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="format">
+               <string>%p% Acquired</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_stop_acquisition">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>Stop</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QProgressBar" name="progressBarIO">
+              <property name="value">
+               <number>100</number>
+              </property>
+              <property name="format">
+               <string>%p% Written</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="qsbIOBuffers">
+              <property name="focusPolicy">
+               <enum>Qt::ClickFocus</enum>
+              </property>
+              <property name="toolTip">
+               <string>Remaining Files</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="buttonSymbols">
+               <enum>QAbstractSpinBox::NoButtons</enum>
+              </property>
+              <property name="maximum">
+               <number>10000</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="settings_file_holder" name="slm_settings_file" native="true"/>
+        </item>
+        <item>
+         <widget class="folder_line_edit" name="txtOutputDir">
+          <property name="toolTip">
+           <string>Path to save files</string>
+          </property>
+          <property name="placeholderText">
+           <string>Workspace</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="frame_microscope">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <widget class="light_path_selector" name="wdg_light_path" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>24</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="frame_microscope_current_xyz">
+          <item>
+           <widget class="QDoubleSpinBox" name="qsbmicroscopeSetX">
+            <property name="font">
+             <font>
+              <pointsize>7</pointsize>
+             </font>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="specialValueText">
+             <string>NA</string>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>-999999.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999999.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>1000.000000000000000</double>
+            </property>
+            <property name="value">
+             <double>-999999.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="qsbmicroscopeSetY">
+            <property name="font">
+             <font>
+              <pointsize>7</pointsize>
+             </font>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="specialValueText">
+             <string>NA</string>
+            </property>
+            <property name="minimum">
+             <double>-999999.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999999.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>1000.000000000000000</double>
+            </property>
+            <property name="value">
+             <double>-999999.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="qsbmicroscopeSetZ">
+            <property name="font">
+             <font>
+              <pointsize>7</pointsize>
+             </font>
+            </property>
+            <property name="wrapping">
+             <bool>false</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="specialValueText">
+             <string>NA</string>
+            </property>
+            <property name="minimum">
+             <double>-999999.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999999.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>1.000000000000000</double>
+            </property>
+            <property name="value">
+             <double>-999999.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="frame_microscope_new_xyz" stretch="1,1,1,0">
+          <item>
+           <widget class="QDoubleSpinBox" name="qsbmicroscopeX">
+            <property name="font">
+             <font>
+              <pointsize>7</pointsize>
+             </font>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::ClickFocus</enum>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="minimum">
+             <double>-999999.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999999.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>10.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="qsbmicroscopeY">
+            <property name="font">
+             <font>
+              <pointsize>7</pointsize>
+             </font>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::ClickFocus</enum>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="minimum">
+             <double>-999999.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999999.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>10.000000000000000</double>
+            </property>
+            <property name="maxLength" stdset="0">
+             <number>32767</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="qsbmicroscopeZ">
+            <property name="font">
+             <font>
+              <pointsize>7</pointsize>
+             </font>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::ClickFocus</enum>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="minimum">
+             <double>-999999.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999999.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>10.000000000000000</double>
+            </property>
+            <property name="maxLength" stdset="0">
+             <number>32767</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_microscope_move">
+            <property name="toolTip">
+             <string>Goto location (-1.00 ignored)</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="slim5.qrc">
+              <normaloff>:/images/point-left.svg</normaloff>:/images/point-left.svg</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="frame_bottom">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1">
+        <item>
+         <widget class="QPushButton" name="btnHelp">
+          <property name="toolTip">
+           <string>Program info</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="slim5.qrc">
+            <normaloff>:/images/info.svg</normaloff>:/images/info.svg</iconset>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnQuit">
+          <property name="text">
+           <string>Quit</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>folder_line_edit</class>
+   <extends>QLineEdit</extends>
+   <header>folder_line_edit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>camera_config_selector</class>
+   <extends>QWidget</extends>
+   <header>camera_config_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>processing_quad_selector</class>
+   <extends>QWidget</extends>
+   <header>processing_quad_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>display_selector</class>
+   <extends>QWidget</extends>
+   <header>display_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>exposure_sequence_control</class>
+   <extends>QWidget</extends>
+   <header>exposure_sequence_control.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>light_path_selector</class>
+   <extends>QWidget</extends>
+   <header>light_path_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ml_remapper_selector</class>
+   <extends>QWidget</extends>
+   <header>ml_remapper_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>render_shifter_selector</class>
+   <extends>QWidget</extends>
+   <header>render_shifter_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>band_pass_settings_selector</class>
+   <extends>QWidget</extends>
+   <header>band_pass_settings_selector.h</header>
+  </customwidget>
+  <customwidget>
+   <class>settings_file_holder</class>
+   <extends>QWidget</extends>
+   <header>settings_file_holder.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>snapshot_label</class>
+   <extends>QLineEdit</extends>
+   <header>snapshot_label.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>btnSetOne</tabstop>
+  <tabstop>btnSetTwo</tabstop>
+  <tabstop>btnSetThree</tabstop>
+  <tabstop>snapshot_text</tabstop>
+  <tabstop>btnFullInterface</tabstop>
+  <tabstop>txtOutputDir</tabstop>
+  <tabstop>qsbmicroscopeSetX</tabstop>
+  <tabstop>qsbmicroscopeSetY</tabstop>
+  <tabstop>qsbmicroscopeSetZ</tabstop>
+  <tabstop>btn_microscope_move</tabstop>
+  <tabstop>btnHelp</tabstop>
+  <tabstop>btnQuit</tabstop>
+ </tabstops>
+ <resources>
+  <include location="slim5.qrc"/>
+ </resources>
+ <connections/>
+</ui>

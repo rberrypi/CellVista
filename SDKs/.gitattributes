@@ -1,0 +1,7 @@
+# track the following files through git lfs
+*               filter=lfs diff=lfs merge=lfs -text
+
+# ignore tracking the following files though git lfs
+.gitignore      filter= diff= merge= text
+.gitattributes  filter= diff= merge= text
+README.md	filter= diff= merge= text

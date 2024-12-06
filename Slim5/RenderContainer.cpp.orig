@@ -1,0 +1,184 @@
+#include "stdafx.h"
+#include "RenderContainer.h"
+#include "RenderWidget.h"
+#include <QScrollBar>
+#include <QVBoxLayout>
+#include "PlaceHolderWidget.h"
+#include <QPushButton>
+#include <QWheelEvent>
+#include <qmath.h>
+#include <QApplication>
+#include <QLabel>
+RenderContainer::RenderContainer(RenderWidget* RenderMe, QWidget *parent) : QWidget(parent), render_surface(RenderMe)
+{
+	setFocusPolicy(Qt::FocusPolicy::StrongFocus);
+	connect(render_surface, &RenderWidget::FrameSizeChanged, this, &RenderContainer::FitScale, Qt::QueuedConnection);
+	connect(render_surface, &RenderWidget::wheelEvent_external, this, &RenderContainer::wheelEvent);
+	//connect(render_surface, &RenderWidget::keyPressEvent_external, this, &RenderContainer::keyPressEvent);
+	//Render Surface
+	{
+		auto window_container = QWidget::createWindowContainer(render_surface);
+		window_container->setLayout(new QGridLayout());
+		fml = new PlaceHolderWidget;
+		//fml->setContentsMargins(0, 0, 0, 0);
+		window_container->layout()->addWidget(fml);
+		grid_layout = new QGridLayout();
+		grid_layout->addWidget(window_container, 0, 0);
+		grid_layout->setColumnStretch(0, 1);
+	}
+	//Horizontal Scroll Bar
+	{
+		auto bottom_strip = new  QHBoxLayout();
+		auto plus_button = new QPushButton;
+		plus_button->setIcon(QIcon(":/images/zoom-in.svg"));
+		QObject::connect(plus_button, &QPushButton::clicked, [&] {zoom_event(true); });
+		bottom_strip->addWidget(plus_button);
+
+		zoom_level_label = new QLabel("Zoom");
+		/*
+		QObject::connect(zoom_level_label, &QPushButton::clicked, [&] {
+			auto frame_size = render_surface->img_size;
+			FitScale(frame_size);
+		});
+		*/
+		bottom_strip->addWidget(zoom_level_label);
+		auto minus_button = new QPushButton;
+		minus_button->setIcon(QIcon(":/images/zoom-out.svg"));
+		QObject::connect(minus_button, &QPushButton::clicked, [&] {zoom_event(false); });
+		bottom_strip->addWidget(minus_button);
+		horizontalScrollBar = new QScrollBar(Qt::Horizontal);
+		horizontalScrollBar->setFocusPolicy(Qt::FocusPolicy::StrongFocus);
+		bottom_strip->addWidget(horizontalScrollBar, 1);
+		//grid_layout->addLayout(bottom_strip, 1, 0, 1, 2);
+		grid_layout->addLayout(bottom_strip, 1, 0);
+		grid_layout->setRowStretch(0, 1);
+		connect(horizontalScrollBar, &QScrollBar::valueChanged, [&](int value) {
+			render_surface->scroll_offset_width = value;
+		});
+	}
+	//
+	verticalScrollBar = new QScrollBar;
+	verticalScrollBar->setFocusPolicy(Qt::FocusPolicy::StrongFocus);
+	grid_layout->addWidget(verticalScrollBar, 0, 1);
+	connect(verticalScrollBar, &QScrollBar::valueChanged, [&](int value) {
+		render_surface->scroll_offset_height = value;
+	});
+	setLayout(grid_layout);
+}
+
+const float RenderContainer::zoom_increment = 0.1;
+
+void RenderContainer::zoom_event(bool zoom_in)
+{
+	auto zoom_amount = zoom_in ? zoom_increment : -zoom_increment;
+	setZoom(render_surface->img_size.digitalScale + zoom_amount);
+}
+
+void RenderContainer::setZoom(float value)
+{
+	auto zoom_scale = std::max(zoom_increment, value);
+	auto new_size = RenderDimensions(render_surface->img_size, zoom_scale);
+	SetScaleBars(new_size);
+}
+
+bool RenderContainer::eventFilter(QObject *obj, QEvent *event)
+{
+	//this should probably consume the events? aka set event->accept() ? 
+	if (event->type() == QEvent::KeyPress)
+	{
+		keyPressEvent(static_cast<QKeyEvent *>(event));
+	}
+	if (event->type() == QEvent::Wheel)
+	{
+
+		wheelEvent(static_cast<QWheelEvent *>(event));
+	}
+	return QObject::eventFilter(obj, event);
+}
+
+void RenderContainer::wheelEvent(QWheelEvent *event)
+{
+	//todo digital scale should live only in the render widget
+	float factor = qPow(1.2, event->delta() / 240.0)*render_surface->img_size.digitalScale;
+	setZoom(std::max(factor, 0.0f));
+	QWidget::wheelEvent(event);
+}
+
+void RenderContainer::keyPressEvent(QKeyEvent *event)
+{
+	auto key = event->key();
+	switch (key)//non-paradimatic but oh well
+	{
+	case Qt::Key_Up:
+	case Qt::Key_Down:
+		verticalScrollBar->event(event);
+		break;
+	case Qt::Key_Left:
+	case Qt::Key_Right:
+		horizontalScrollBar->event(event);
+		break;
+	default://shuts up the static analysis
+		break;
+	}
+	QWidget::keyPressEvent(event);
+}
+
+void RenderContainer::SetScaleBars(const RenderDimensions& requested_size_scale)
+{
+	auto new_size = requested_size_scale;
+	auto max_viewport = render_surface->max_viewport;
+<<<<<<< HEAD
+	auto max_scale = std::min(max_viewport.width / (1.0f* new_size.width), max_viewport.height / (1.0f*new_size.height));
+=======
+	auto max_scale = std::min(max_viewport.width / (1.0f*new_size.width), max_viewport.height / (1.0f*new_size.height));
+>>>>>>> 5bc175077e87118bbccbeecd37a19b96932e8f25
+	if (new_size.digitalScale > max_scale)
+	{
+		//std::cout << "Cant't zoom further" << std::endl;
+		new_size.digitalScale = max_scale;
+	}
+	//
+	render_surface->img_size.digitalScale = new_size.digitalScale;
+	//
+	int predicted_width = ceil(new_size.digitalScale*new_size.width);
+	int predicted_height = ceil(new_size.digitalScale*new_size.height);
+	//so if this is bigger than the maxviewport we reject the change
+
+	auto label = QString::number((100.0*predicted_width) / new_size.width, 'f', 2).append("%");
+	zoom_level_label->setText(label);
+	auto margins = grid_layout->contentsMargins();
+	auto margin_width = margins.left() + margins.right();//this logic might be wrong, but the difference is the 15 pixel margin for soe widget...
+	fml->setSizeHint(QSize(predicted_width - margin_width, predicted_height));//maybe not needed, check...
+	//
+	{
+		//render_surface->setWidth(predicted_width);//has no effect
+		auto magic_feel_scale = 50;// I know that feel
+		auto areaSize = render_surface->size();
+		verticalScrollBar->setPageStep(areaSize.height());
+		auto range_height = predicted_height - areaSize.height();
+		verticalScrollBar->setRange(0, range_height);
+		verticalScrollBar->setSingleStep(std::max(1, range_height / magic_feel_scale));
+		horizontalScrollBar->setPageStep(areaSize.width());
+		auto range_width = predicted_width - areaSize.width();
+		horizontalScrollBar->setRange(0, range_width);
+		horizontalScrollBar->setSingleStep(std::max(1, range_width / magic_feel_scale));
+	}
+}
+
+void RenderContainer::resizeEvent(QResizeEvent *event)
+{
+	auto frame_size = render_surface->img_size;
+	if (frame_size.n() > 0)
+	{
+		SetScaleBars(frame_size);
+	}
+	QWidget::resizeEvent(event);
+}
+
+void RenderContainer::FitScale(const FrameSize& new_size)
+{
+	auto actual_height = render_surface->height();
+	auto ratio = static_cast<float>(actual_height) / new_size.height;
+	render_surface->img_size.digitalScale = ratio;
+	SetScaleBars(RenderDimensions(new_size, ratio));
+}

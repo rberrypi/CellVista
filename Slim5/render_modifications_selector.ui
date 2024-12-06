@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>render_modifications_selector</class>
+ <widget class="QWidget" name="render_modifications_selector">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>185</width>
+    <height>29</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>render_modifications_selector</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QPushButton" name="show_crosshair">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="slim5.qrc">
+       <normaloff>:/images/plus79.svg</normaloff>:/images/plus79.svg</iconset>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="live_auto_contrast">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="slim5.qrc">
+       <normaloff>:/images/contrast-live.svg</normaloff>:/images/contrast-live.svg</iconset>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="do_radial_average">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="slim5.qrc">
+       <normaloff>:/images/medical.svg</normaloff>:/images/medical.svg</iconset>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="do_ft">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="slim5.qrc">
+       <normaloff>:/images/musical40.svg</normaloff>:/images/musical40.svg</iconset>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="do_scale_bar">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="slim5.qrc">
+       <normaloff>:/images/ruler.svg</normaloff>:/images/ruler.svg</iconset>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="draw_dpm_rect">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="slim5.qrc">
+       <normaloff>:/images/dpm.svg</normaloff>:/images/dpm.svg</iconset>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="slim5.qrc"/>
+ </resources>
+ <connections/>
+</ui>

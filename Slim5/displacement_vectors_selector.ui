@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>displacement_selector_ui</class>
+ <widget class="QWidget" name="displacement_selector_ui">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>468</width>
+    <height>361</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout" columnstretch="0,1">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Row Step [pixel]</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="trakem2_xy_selector" name="row_step_in_pixels" native="true"/>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Column Step [pixel]</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="trakem2_xy_selector" name="column_step_in_pixels" native="true"/>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="calibration_info_selector" name="calibration" native="true"/>
+   </item>
+   <item row="4" column="0" colspan="2">
+    <widget class="path_load_save_selector" name="path_selector" native="true"/>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>trakem2_xy_selector</class>
+   <extends>QWidget</extends>
+   <header>trakem2_xy_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>path_load_save_selector</class>
+   <extends>QWidget</extends>
+   <header>path_load_save_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>calibration_info_selector</class>
+   <extends>QWidget</extends>
+   <header>calibration_info_selector.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

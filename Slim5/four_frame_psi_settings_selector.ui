@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>four_frame_psi_settings_selector</class>
+ <widget class="QWidget" name="four_frame_psi_settings_selector">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="four_frame_psi_setting_selector" name="psi_one" native="true">
+     <property name="toolTip">
+      <string>First PSI Frame</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="four_frame_psi_setting_selector" name="psi_two" native="true">
+     <property name="toolTip">
+      <string>Second PSI Frame</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="four_frame_psi_setting_selector" name="psi_three" native="true">
+     <property name="toolTip">
+      <string>Fourth PSI Frame</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="four_frame_psi_setting_selector" name="psi_four" native="true">
+     <property name="toolTip">
+      <string>Third PSI Frame</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>four_frame_psi_setting_selector</class>
+   <extends>QWidget</extends>
+   <header>four_frame_psi_setting_selector.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

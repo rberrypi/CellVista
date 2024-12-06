@@ -1,0 +1,810 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AED77562-B8A8-4D42-A71E-854D628974E7}</ProjectGuid>
+    <Keyword>QtVS_v302</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">
+    <QtMsBuild>$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 11.6.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtModules>core;gui;multimedia;opengl;svg;widgets</QtModules>
+    <QtInstall>5.15.0_msvc2019_64</QtInstall>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <QtModules>core;gui;multimedia;opengl;svg;widgets</QtModules>
+    <QtInstall>5.15.0_msvc2019_64</QtInstall>
+  </PropertyGroup>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IncludePath>$(SolutionDir)SDKs\Photometrics\PVCamSDK\Inc;$(SolutionDir)SDKs\Nikon\Nikon\Shared\Bin;$(SolutionDir)SDKs\Nikon\Nikon\Ti2-SDK\include;C:\Program Files (x86)\ZeroC\Ice-3.6.4\include;$(SolutionDir)boost;$(SolutionDir)SDKs\Andor SDK3\Andor SDK3;$(SolutionDir)BNSWrapper_QLI;$(SolutionDir)Dependencies\Cereal\include;$(SolutionDir)SDKs\Leica\DM[I]3456K_SDK_V2015.3\C++\include;$(SolutionDir)CImg-1.7.8;$(CUDA_PATH)\include\;$(SolutionDir)SDKs\ZeissCam\AxioCamSDK_7_3\SDK 7.3\Include;$(ProjectDir);$(SolutionDir)SDKs\Andor SDK3;$(SolutionDir)Dependencies\Libtiff;$(SolutionDir)CGAL\include\;$(SolutionDir)CGAL\auxiliary\gmp\include;$(SolutionDir)CGAL\include;$(SolutionDir)CGAL\auxiliary\gmp\lib;$(SolutionDir)SDKs\MTB;$(SolutionDir)Dependencies\Glew\include;$(SolutionDir)SDKs\DCAMSDK\dcamsdk4\inc;$(SolutionDir)SDKs\FlyCapture2\include;$(SolutionDir)Dependencies\Eigen;C:\Program Files (x86)\ZeroC\Ice-3.6.3\lib\x64;$(SolutionDir)SDKs\PI\PI_Programming_Files_PI_GCS2_DLL;$(SolutionDir)SDKs\Spinnaker\include;$(SolutionDir)SDKs\Meadowlark Retarder\C++ Example\64 bit;$(SolutionDir)Dependencies\Hdf5\include;$(SolutionDir)Dependencies\TensorRT\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)SDKs\Photometrics\PVCamSDK\Lib\amd64;$(SolutionDir)SDKs\Spinnaker\lib64\vs2015;$(SolutionDir)SDKs\Nikon\Nikon\Ti2-SDK\lib;C:\Program Files (x86)\ZeroC\Ice-3.6.4\lib\x64;$(SolutionDir)SDKs\Andor SDK3\Andor SDK3;$(SolutionDir)CGAL\lib;$(SolutionDir)CGAL\lib;$(SolutionDir)CGAL\auxiliary\gmp\lib;$(SolutionDir)SDKs\BNS_good\;$(CUDA_PATH)lib\$(PlatformName);$(SolutionDir)boost\stage\lib;$(SolutionDir)Dependencies\Libtiff;$(SolutionDir)SDKs\MTB;$(SolutionDir)SDKs\Nikon\Nikon\Shared\Bin;$(SolutionDir)Dependencies\Glew\lib\Release\x64;$(SolutionDir)SDKs\DCAMSDK\dcamsdk4\lib\win64;$(SolutionDir)SDKs\ZeissCam\AxioCamSDK_7_3\SDK 7.3\Lib;$(SolutionDir)SDKs\Leica\DM[I]3456K_SDK_V2015.3\C++\lib64;$(SolutionDir)SDKs\FlyCapture2\lib64\vs2015;$(SolutionDir)SDKs\PI\PI_Programming_Files_PI_GCS2_DLL\noGUI;$(SolutionDir)SDKs\Meadowlark Retarder\C++ Example\64 bit;$(SolutionDir)Dependencies\Hdf5\lib;$(SolutionDir)Dependencies\TensorRT\lib;$(LibraryPath)</LibraryPath>
+    <LinkIncremental>false</LinkIncremental>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IncludePath>$(SolutionDir)SDKs\pco.sdk\include;$(SolutionDir)SDKs\Photometrics\PVCamSDK\Inc;$(SolutionDir)SDKs\Nikon\Nikon\Shared\Bin;$(SolutionDir)SDKs\Nikon\Nikon\Ti2-SDK\include;C:\Program Files (x86)\ZeroC\Ice-3.6.4\include;$(SolutionDir)boost;$(SolutionDir)SDKs\Andor SDK3\Andor SDK3;$(SolutionDir)BNSWrapper_QLI;$(SolutionDir)Dependencies\Cereal\include;$(SolutionDir)SDKs\Leica\DM[I]3456K_SDK_V2015.3\C++\include;$(SolutionDir)CImg-1.7.8;$(CUDA_PATH)\include\;$(SolutionDir)SDKs\ZeissCam\AxioCamSDK_7_3\SDK 7.3\Include;$(ProjectDir);$(SolutionDir)SDKs\Andor SDK3;$(SolutionDir)Dependencies\Libtiff;$(SolutionDir)CGAL\include\;$(SolutionDir)CGAL\auxiliary\gmp\include;$(SolutionDir)CGAL\include;$(SolutionDir)CGAL\auxiliary\gmp\lib;$(SolutionDir)SDKs\MTB\mtb_3.2.11.0_sdk\;$(SolutionDir)Dependencies\Glew\include;$(SolutionDir)SDKs\DCAMSDK\dcamsdk4\inc;$(SolutionDir)SDKs\FlyCapture2\include;$(SolutionDir)Dependencies\Eigen;$(SolutionDir)PI\PI_Programming_Files_PI_GCS2_DLL;$(SolutionDir)SDKs\Spinnaker\include;$(SolutionDir)SDKs\Meadowlark Retarder\C++ Example\64 bit;$(SolutionDir)Dependencies\Hdf5\include;$(SolutionDir)Dependencies\TensorRT\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)SDKs\pco.sdk\bin64;$(SolutionDir)SDKs\pco.sdk\lib64;$(SolutionDir)SDKs\Photometrics\PVCamSDK\Lib\amd64;$(SolutionDir)SDKs\Spinnaker\lib64\vs2015;$(SolutionDir)SDKs\Nikon\Nikon\Ti2-SDK\lib;$(SolutionDir)SDKs\Andor SDK3\Andor SDK3;$(SolutionDir)CGAL\lib;$(SolutionDir)CGAL\auxiliary\gmp\lib;$(SolutionDir)SDKs\BNS_good\;$(CUDA_PATH)lib\$(PlatformName);$(SolutionDir)boost\stage\lib;$(SolutionDir)Dependencies\Libtiff;$(SolutionDir)SDKs\MTB\mtb_3.2.11.0_sdk\;$(SolutionDir)SDKs\Nikon\Nikon\Shared\Bin;$(SolutionDir)Dependencies\Glew\lib\Release\x64\;$(SolutionDir)SDKs\DCAMSDK\dcamsdk4\lib\win64;$(SolutionDir)SDKs\ZeissCam\AxioCamSDK_7_3\SDK 7.3\Lib;$(SolutionDir)SDKs\Leica\DM[I]3456K_SDK_V2015.3\C++\lib64;$(SolutionDir)SDKs\FlyCapture2\lib64\vs2015;$(SolutionDir)PI\PI_Programming_Files_PI_GCS2_DLL\noGUI;$(SolutionDir)SDKs\Meadowlark Retarder\C++ Example\64 bit;$(SolutionDir)Dependencies\Hdf5\lib;$(SolutionDir)Dependencies\TensorRT\lib;$(LibraryPath)</LibraryPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;$(QTDIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <BasicRuntimeChecks>StackFrameRuntimeCheck</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <AdditionalOptions>/FS  /wd4996 %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Dependencies\TensorRT\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Gdi32.lib;libgmp-10.lib;cudart.lib;cuda.lib;cufft.lib;WINMM.lib;user32.lib;shell32.lib;nppicc.lib;nppc.lib;nppidei.lib;nppif.lib;nppig.lib;nppim.lib;nppist.lib;nppisu.lib;nppitc.lib;nppial.lib;libtiffd.lib;nvonnxparser.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+    </Link>
+    <PostBuildEvent>
+      <Command>ECHO "ImageJ"
+COPY /Y "$(SolutionDir)SDKs\phiopticsplugins2\out\artifacts\QPI_Reciever\*.jar" "$(TargetDir)"
+ECHO "CGAL"
+COPY /Y "$(SolutionDir)\Dependencies\Glew\bin\Release\x64\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)CGAL\bin\*dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)CGAL\build_release\bin\*dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)CGAL\auxiliary\gmp\lib\*dll" "$(TargetDir)"
+ECHO "Boost"
+COPY /Y "$(SolutionDir)boost\stage\lib\libboost_thread-*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)boost\stage\lib\libboost_system-*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)boost\stage\lib\libboost_chrono-*.dll" "$(TargetDir)"
+ECHO "Qt DLLs"
+COPY /Y "$(QTDIR)\bin\icu*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5Gui*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5Core*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5OpenGL*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5Widgets*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5Widgets*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5Print*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5Svg*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5Network*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5Multimedia*.dll" "$(TargetDir)"
+XCOPY /Y "$(QTDIR)\plugins\platforms" "$(TargetDir)\platforms" /i
+XCOPY /Y "$(QTDIR)\plugins\imageformats" "$(TargetDir)\imageformats" /i
+XCOPY /Y "$(QTDIR)\plugins\audio" "$(TargetDir)\audio" /i
+COPY /Y "$(SolutionDir)OpenSSL\openssl-1.0.1g-64bit-release-vs2013\bin\*dll" "$(TargetDir)"
+ECHO "Hardware"
+COPY /Y "$(SolutionDir)SDKs\Nikon\Nikon\Ti2-SDK\bin\Ti2_Mic_Driver.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\Andor SDK3\Andor SDK3\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\BNS_good\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\BNS_good\Ancient_BNS_Interface\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\BNS_good\Ancient_BNS_Interface\*.lut" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\Leica\DM[I]3456K_SDK_V2015.3\bin64\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\FlyCapture2\bin64\vs2015\FlyCapture2_v140.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\FlyCapture2\bin64\vs2015\libiomp5md.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\PI\PI_Programming_Files_PI_GCS2_DLL\noGUI\PI_GCS2_DLL_x64.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\Meadowlark Retarder\C++ Example\64 bit\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)Dependencies\TensorRT\lib\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)Dependencies\Cudnn\cuda\bin\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)Slim5\ml_models\*.h5" "$(TargetDir)"
+COPY /Y "$(SolutionDir)Slim5\ml_models\*.onnx" "$(TargetDir)"
+XCOPY /Y "$(SolutionDir)Dependencies\Hdf5\bin\hdf5*" "$(TargetDir)"
+IF EXIST "C:\ProgramData\Leica Microsystems\Leica Hardware Configurator\ahmconfig.xml" COPY /Y /Y "C:\ProgramData\Leica Microsystems\Leica Hardware Configurator\ahmconfig.xml" "$(TargetDir)"
+ECHO "purging"
+if not exist "$(SolutionDir)\x64\Release_pdb\" mkdir "$(SolutionDir)\x64\Release_pdb\"
+GOTO skip
+XCOPY /Y /E /H /Y /C "$(TargetDir)*.pdb" "$(SolutionDir)\x64\Release_pdb\"
+del /s /q "$(TargetDir)*.pdb"
+del /s "$(TargetDir)\*d.dll"
+del /s "$(TargetDir)\*gd*.dll"
+:skip
+ECHO "fixing names"
+COPY /Y "$(SolutionDir)SDKs\BNS_good\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\BNS_good\Ancient_BNS_Interface\*.dll" "$(TargetDir)"</Command>
+    </PostBuildEvent>
+    <CudaCompile>
+      <FastMath>true</FastMath>
+      <CodeGeneration>compute_52,sm_52;compute_35,sm_35;</CodeGeneration>
+      <AdditionalCompilerOptions>/FS /wd4996 /wd4005</AdditionalCompilerOptions>
+      <Defines>
+      </Defines>
+      <InterleaveSourceInPTX>true</InterleaveSourceInPTX>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+    </CudaCompile>
+    <PreBuildEvent>
+      <Command>$(QTDIR)\bin\rcc.exe -binary $(ProjectDir)\slim5.qrc -o $(TargetDir)\slim5.rcc
+$(QTDIR)\bin\rcc.exe -binary -no-compress $(ProjectDir)\virtualcamera.qrc -o $(TargetDir)\virtualcamera.rcc</Command>
+    </PreBuildEvent>
+    <QtMoc />
+    <QtUic />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;$(QTDIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <Optimization>Full</Optimization>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <AdditionalOptions>/FS -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\TensorRT\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Gdi32.lib;libgmp-10.lib;cudart.lib;cuda.lib;cufft.lib;WINMM.lib;user32.lib;shell32.lib;nppicc.lib;nppc.lib;nppidei.lib;nppif.lib;nppig.lib;nppim.lib;nppist.lib;nppisu.lib;nppitc.lib;nppial.lib;libtiff.lib;nvonnxparser.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>ECHO "ImageJ"
+COPY /Y "$(SolutionDir)SDKs\phiopticsplugins2\out\artifacts\QPI_Reciever\*.jar" "$(TargetDir)"
+ECHO "CGAL"
+COPY /Y "$(SolutionDir)\Dependencies\Glew\bin\Release\x64\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)CGAL\bin\*dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)CGAL\build_release\bin\*dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)CGAL\auxiliary\gmp\lib\*dll" "$(TargetDir)"
+ECHO "Boost"
+COPY /Y "$(SolutionDir)boost\stage\lib\libboost_thread-*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)boost\stage\lib\libboost_system-*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)boost\stage\lib\libboost_chrono-*.dll" "$(TargetDir)"
+ECHO "Qt DLLs"
+COPY /Y "$(QTDIR)\bin\icu*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5Gui*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5Core*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5OpenGL*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5Widgets*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5Widgets*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5Print*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5Svg*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5Network*.dll" "$(TargetDir)"
+COPY /Y "$(QTDIR)\bin\Qt5Multimedia*.dll" "$(TargetDir)"
+XCOPY /Y "$(QTDIR)\plugins\platforms" "$(TargetDir)\platforms" /i
+XCOPY /Y "$(QTDIR)\plugins\imageformats" "$(TargetDir)\imageformats" /i
+XCOPY /Y "$(QTDIR)\plugins\audio" "$(TargetDir)\audio" /i
+COPY /Y "$(SolutionDir)OpenSSL\openssl-1.0.1g-64bit-release-vs2013\bin\*dll" "$(TargetDir)"
+ECHO "Hardware"
+COPY /Y "$(SolutionDir)SDKs\Nikon\Nikon\Ti2-SDK\bin\Ti2_Mic_Driver.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\Andor SDK3\Andor SDK3\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\BNS_good\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\BNS_good\Ancient_BNS_Interface\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\BNS_good\Ancient_BNS_Interface\*.lut" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\Leica\DM[I]3456K_SDK_V2015.3\bin64\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\FlyCapture2\bin64\vs2015\FlyCapture2_v140.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\FlyCapture2\bin64\vs2015\libiomp5md.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\PI\PI_Programming_Files_PI_GCS2_DLL\noGUI\PI_GCS2_DLL_x64.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\Meadowlark Retarder\C++ Example\64 bit\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)Dependencies\TensorRT\lib\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)Dependencies\Cudnn\cuda\bin\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)Slim5\ml_models\*.h5" "$(TargetDir)"
+COPY /Y "$(SolutionDir)Slim5\ml_models\*.onnx" "$(TargetDir)"
+XCOPY /Y "$(SolutionDir)Dependencies\Hdf5\bin\hdf5*" "$(TargetDir)"
+IF EXIST "C:\ProgramData\Leica Microsystems\Leica Hardware Configurator\ahmconfig.xml" COPY /Y /Y "C:\ProgramData\Leica Microsystems\Leica Hardware Configurator\ahmconfig.xml" "$(TargetDir)"
+ECHO "purging"
+if not exist "$(SolutionDir)\x64\Release_pdb\" mkdir "$(SolutionDir)\x64\Release_pdb\"
+GOTO skip
+XCOPY /Y /E /H /Y /C "$(TargetDir)*.pdb" "$(SolutionDir)\x64\Release_pdb\"
+del /s /q "$(TargetDir)*.pdb"
+del /s "$(TargetDir)\*d.dll"
+del /s "$(TargetDir)\*gd*.dll"
+:skip
+ECHO "fixing names"
+COPY /Y "$(SolutionDir)SDKs\BNS_good\*.dll" "$(TargetDir)"
+COPY /Y "$(SolutionDir)SDKs\BNS_good\Ancient_BNS_Interface\*.dll" "$(TargetDir)"
+ECHO "FUCK QLI"
+COPY /Y "$(SolutionDir)SDKs\pco.sdk\bin64\*.dll" "$(TargetDir)"</Command>
+    </PostBuildEvent>
+    <CudaCompile>
+      <Optimization>InheritFromHost</Optimization>
+      <FastMath>true</FastMath>
+      <GPUDebugInfo>false</GPUDebugInfo>
+      <CodeGeneration>compute_75,sm_75;compute_61,sm_61;compute_52,sm_52;compute_35,sm_35</CodeGeneration>
+      <AdditionalCompilerOptions>/FS /wd4996 /wd4005</AdditionalCompilerOptions>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+    </CudaCompile>
+    <PreBuildEvent>
+      <Command>$(QTDIR)\bin\rcc.exe -binary $(ProjectDir)\slim5.qrc -o $(TargetDir)\slim5.rcc
+$(QTDIR)\bin\rcc.exe -binary -no-compress $(ProjectDir)\virtualcamera.qrc -o $(TargetDir)\virtualcamera.rcc</Command>
+    </PreBuildEvent>
+    <QtMoc />
+    <QtUic />
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="acquisition_framework_af_system.cpp" />
+    <ClCompile Include="acquisition_framework_async_trigger_thread.cpp" />
+    <ClCompile Include="acquisition_framework_capture.cpp" />
+    <ClCompile Include="acquisition_framework_capture_burst.cpp" />
+    <ClCompile Include="acquisition_framework_merge_meta_data.cpp" />
+    <ClCompile Include="acquisition_framework_scope.cpp" />
+    <ClCompile Include="acquisition_framework_shared.cpp" />
+    <ClCompile Include="acquisition.cpp" />
+    <ClCompile Include="andor_device.cpp" />
+    <ClCompile Include="arduino_retarder.cpp" />
+    <ClCompile Include="arduino_upload_sequence.cpp" />
+    <ClCompile Include="asi_devices.cpp" />
+    <ClCompile Include="aspectratiopixmaplabel.cpp" />
+    <ClCompile Include="band_pass_settings_selector.cpp" />
+    <ClCompile Include="bns_device.cpp" />
+    <ClCompile Include="bns_device_old.cpp" />
+    <ClCompile Include="bsi_camera.cpp" />
+    <ClCompile Include="bsi_camera_common.cpp" />
+    <ClCompile Include="calibration_info_selector.cpp" />
+    <ClCompile Include="camera_config.cpp" />
+    <ClCompile Include="camera_config_selector.cpp" />
+    <ClCompile Include="camera_contrast_features.cpp" />
+    <ClCompile Include="camera_device.cpp" />
+    <ClCompile Include="camera_holder.cpp" />
+    <ClCompile Include="capture_dialog_camera_helper.cpp" />
+    <ClCompile Include="capture_modes.cpp" />
+    <ClCompile Include="cgal_triangulator.cpp" />
+    <ClCompile Include="channel_editor_delegate.cpp" />
+    <ClCompile Include="channel_settings.cpp" />
+    <ClCompile Include="channel_settings_serialization.cpp" />
+    <ClCompile Include="click_surface.cpp" />
+    <ClCompile Include="compact_light_path_holder.cpp" />
+    <ClCompile Include="compact_light_path_selector.cpp" />
+    <ClCompile Include="compute_and_scope_settings.cpp" />
+    <ClCompile Include="com_persitent_device.cpp" />
+    <ClCompile Include="com_retarder_device.cpp" />
+    <ClCompile Include="condenser_config.cpp" />
+    <ClCompile Include="cuda_error_check.cpp" />
+    <ClCompile Include="darkfield_pattern_settings_selector.cpp" />
+    <ClCompile Include="distorted_donut_selector.cpp" />
+    <ClCompile Include="double_spin_box_settings.cpp" />
+    <ClCompile Include="dpm_settings.cpp" />
+    <ClCompile Include="demosaic.cpp" />
+    <ClCompile Include="denoise.cpp" />
+    <ClCompile Include="device_factory.cpp" />
+    <ClCompile Include="directory_validator.cpp" />
+    <ClCompile Include="displacement_vectors_selector.cpp" />
+    <ClCompile Include="display_selector.cpp" />
+    <ClCompile Include="double_spin_box_delegate.cpp" />
+    <ClCompile Include="dpm_settings_selector.cpp" />
+    <ClCompile Include="dvi_slm_device.cpp" />
+    <ClCompile Include="emphemeral_main_gui_settings.cpp" />
+    <ClCompile Include="ensure_time_has_elapsed_barrier.cpp" />
+    <ClCompile Include="exposure_sequence_control.cpp" />
+    <ClCompile Include="filename_grouping_mode.cpp" />
+    <ClCompile Include="file_line_edit.cpp" />
+    <ClCompile Include="file_validator.cpp" />
+    <ClCompile Include="fixed_hardware_settings.cpp" />
+    <ClCompile Include="fixed_modulator_settings_selector.cpp" />
+    <ClCompile Include="fix_windows_selection.cpp" />
+    <ClCompile Include="fly_capture_device.cpp" />
+    <ClCompile Include="folder_line_edit.cpp" />
+    <ClCompile Include="four_frame_psi_settings_selector.cpp" />
+    <ClCompile Include="four_frame_psi_setting_selector.cpp" />
+    <ClCompile Include="frame_meta_data.cpp" />
+    <ClCompile Include="itaSettings.cpp" />
+    <ClCompile Include="full_interface_gui.cpp" />
+    <ClCompile Include="full_interface_gui_channels.cpp" />
+    <ClCompile Include="full_interface_gui_save_dialogs.cpp" />
+    <ClCompile Include="full_interface_gui_storage_info.cpp" />
+    <ClCompile Include="full_interface_gui_trakem2.cpp" />
+    <ClCompile Include="full_interface_gui_wrangle_scan.cpp" />
+    <ClCompile Include="full_interface_gui_xml.cpp" />
+    <ClCompile Include="full_interface_slim4_gui.cpp" />
+    <ClCompile Include="graphics_view_zoom.cpp" />
+    <ClCompile Include="hamamatsu_camera.cpp" />
+    <ClCompile Include="histogram_info.cpp" />
+    <ClCompile Include="illumination_power_settings_selector.cpp" />
+    <ClCompile Include="instrument_configuration.cpp" />
+    <ClCompile Include="io_work.cpp" />
+    <ClCompile Include="io_worker.cpp" />
+    <ClCompile Include="leica_devices.cpp" />
+    <ClCompile Include="leica_proptools.cpp" />
+    <ClCompile Include="light_path_selector.cpp" />
+    <ClCompile Include="limited_spinning_box_delegate.cpp" />
+    <ClCompile Include="line_scale.cpp" />
+    <ClCompile Include="live_capture_engine.cpp" />
+    <ClCompile Include="live_gui_settings.cpp" />
+    <ClCompile Include="live_settings_store.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="material_info_selector.cpp" />
+    <ClCompile Include="material_picker.cpp" />
+    <ClCompile Include="meadowlark_retarder.cpp" />
+    <ClCompile Include="ml_remapper_selector.cpp" />
+    <ClCompile Include="modulator_configuration.cpp" />
+    <ClCompile Include="nikon_devices2.cpp" />
+    <ClCompile Include="nikon_devices.cpp">
+      <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</MultiProcessorCompilation>
+      <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</MultiProcessorCompilation>
+    </ClCompile>
+    <ClCompile Include="page_locked_allocator.cpp" />
+    <ClCompile Include="path_load_save_selector.cpp" />
+    <ClCompile Include="pattern_generators.cpp" />
+    <ClCompile Include="pco.cpp" />
+    <ClCompile Include="pco_edge.cpp" />
+    <ClCompile Include="pco_panda.cpp" />
+    <ClCompile Include="per_modulator_saveable_settings_selector.cpp" />
+    <ClCompile Include="phase_processing.cpp" />
+    <ClCompile Include="phase_retrieval.cpp" />
+    <ClCompile Include="phase_shift_exposure_and_delay.cpp" />
+    <ClCompile Include="processing_quad.cpp" />
+    <ClCompile Include="processing_quad_selector.cpp" />
+    <ClCompile Include="phase_shift_exposure_and_delay_selector.cpp" />
+    <ClCompile Include="pi_devices.cpp" />
+    <ClCompile Include="preflight_checks.cpp" />
+    <ClCompile Include="pre_allocated_pool.cpp" />
+    <ClCompile Include="psi_function_pairs_selector.cpp" />
+    <ClCompile Include="psi_function_pair_selector.cpp" />
+    <ClCompile Include="QApplication_with_debug.cpp" />
+    <ClCompile Include="qcustomplot.cpp" />
+    <ClCompile Include="qli_styled_slim_application_with_debug.cpp" />
+    <ClCompile Include="QSilentDoubleSpinBox.cpp" />
+    <ClCompile Include="quick_scope_test.cpp" />
+    <ClCompile Include="radial_spectrum_widget.cpp" />
+    <ClCompile Include="rectangle_model.cpp" />
+    <ClCompile Include="remake_directory.cpp" />
+    <ClCompile Include="render_container.cpp" />
+    <ClCompile Include="render_engine_ij.cpp" />
+    <ClCompile Include="render_settings.cpp" />
+    <ClCompile Include="render_settings_luts.cpp" />
+    <ClCompile Include="render_shifter_selector.cpp" />
+    <ClCompile Include="render_widget.cpp" />
+    <ClCompile Include="render_widget_drag.cpp" />
+    <ClCompile Include="roi_item.cpp" />
+    <ClCompile Include="roi_model.cpp" />
+    <ClCompile Include="roi_model_xml.cpp" />
+    <ClCompile Include="qli_runtime_error.cpp" />
+    <ClCompile Include="safe_move_to_screen.cpp" />
+    <ClCompile Include="save_device_state.cpp" />
+    <ClCompile Include="scope.cpp" />
+    <ClCompile Include="pixel_dimensions_selector.cpp" />
+    <ClCompile Include="scope_compute_settings.cpp" />
+    <ClCompile Include="scope_compute_settings_selector.cpp" />
+    <ClCompile Include="scope_delay_delegate.cpp" />
+    <ClCompile Include="scope_channel_drive_settings.cpp" />
+    <ClCompile Include="scratch_pad.cpp" />
+    <ClCompile Include="segmentation_editor.cpp" />
+    <ClCompile Include="settings_file.cpp" />
+    <ClCompile Include="settings_file_serialization.cpp" />
+    <ClCompile Include="slim_four_about.cpp" />
+    <ClCompile Include="slim_four_acquisition.cpp" />
+    <ClCompile Include="slim_four_audio_notification.cpp" />
+    <ClCompile Include="slim_four_channel_settings.cpp" />
+    <ClCompile Include="slim_four_gui.cpp" />
+    <ClCompile Include="slim_four_histogram.cpp" />
+    <ClCompile Include="slim_four_live_control_logic.cpp" />
+    <ClCompile Include="slim_four_materials.cpp" />
+    <ClCompile Include="slim_four_open_capture_dialogs.cpp" />
+    <ClCompile Include="slim_four_render.cpp" />
+    <ClCompile Include="slim_four_save_settings.cpp" />
+    <ClCompile Include="slim_four_scope.cpp" />
+    <ClCompile Include="ml_structs.cpp" />
+    <ClCompile Include="slm_control.cpp" />
+    <ClCompile Include="slm_control_channels.cpp" />
+    <ClCompile Include="slm_device.cpp" />
+    <ClCompile Include="slm_device_alignment_pattern.cpp" />
+    <ClCompile Include="slm_device_custom_pattern.cpp" />
+    <ClCompile Include="slm_holder.cpp" />
+    <ClCompile Include="slm_holder_custom_patterns.cpp" />
+    <ClCompile Include="settings_file_holder.cpp" />
+    <ClCompile Include="slm_pattern_generation_selector.cpp" />
+    <ClCompile Include="slm_pattern_model.cpp" />
+    <ClCompile Include="snapshot_label.cpp" />
+    <ClCompile Include="snap_to_min_spinbox.cpp" />
+    <ClCompile Include="spinnaker_camera.cpp" />
+    <ClCompile Include="spin_box_fixed_increment.cpp" />
+    <ClCompile Include="standalone_phase_retriever.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="system_tests.cpp" />
+    <ClCompile Include="system_tests_make_slm_pattern.cpp" />
+    <ClCompile Include="system_timer_resolution.cpp" />
+    <CudaCompile Include="compute_engine_shared.cu" />
+    <CudaCompile Include="test_compilation.cu" />
+    <ClCompile Include="thorlabs_eom.cpp" />
+    <ClCompile Include="thread_priority.cpp" />
+    <ClCompile Include="time_guarantee.cpp" />
+    <ClCompile Include="time_priority.cpp" />
+    <ClCompile Include="time_slice.cpp" />
+    <ClCompile Include="tinyxml2\tinyxml2.cpp" />
+    <ClCompile Include="tomogram_picker.cpp" />
+    <ClCompile Include="trakem2_stitching_dialog.cpp" />
+    <ClCompile Include="trakem2_stitching_structs.cpp" />
+    <ClCompile Include="trakem2_xy_selector.cpp" />
+    <ClCompile Include="triangulator_test.cpp" />
+    <ClCompile Include="virtual_camera_device.cpp" />
+    <ClCompile Include="virtual_camera_settings.cpp" />
+    <ClCompile Include="virtual_slm.cpp" />
+    <ClCompile Include="widget_tests.cpp" />
+    <ClCompile Include="xyz_focus_points_model.cpp" />
+    <ClCompile Include="xyz_focus_point_item.cpp" />
+    <ClCompile Include="zeiss_camera.cpp" />
+    <ClCompile Include="zeiss_devices.cpp">
+      <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</MultiProcessorCompilation>
+      <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</MultiProcessorCompilation>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acquisition.h" />
+    <ClInclude Include="acquisition_framework.h" />
+    <QtMoc Include="displacement_vectors_selector.h" />
+    <QtMoc Include="calibration_info_selector.h" />
+    <QtMoc Include="aspectratiopixmaplabel.h" />
+    <ClInclude Include="boost_cerealization.h" />
+    <ClInclude Include="camera_config.h" />
+    <ClInclude Include="camera_holder.h" />
+    <ClInclude Include="capture_cycle.h" />
+    <ClInclude Include="channel_settings.h" />
+    <ClInclude Include="common_limits.h" />
+    <ClInclude Include="compute_and_scope_state.h" />
+    <QtMoc Include="darkfield_pattern_settings_selector.h" />
+    <ClInclude Include="display_settings.h" />
+    <QtMoc Include="dpm_settings_selector.h" />
+    <QtMoc Include="distorted_donut_selector.h" />
+    <ClInclude Include="double_spin_box_settings.h" />
+    <ClInclude Include="filename_grouping_mode.h" />
+    <ClInclude Include="fixed_hardware_settings.h" />
+    <ClInclude Include="fixed_hardware_settings_cerealization.h" />
+    <QtMoc Include="material_info_selector.h" />
+    <QtMoc Include="fixed_modulator_settings_selector.h" />
+    <QtMoc Include="four_frame_psi_settings_selector.h" />
+    <QtMoc Include="illumination_power_settings_selector.h" />
+    <QtMoc Include="four_frame_psi_setting_selector.h" />
+    <QtMoc Include="live_capture_engine.h" />
+    <QtMoc Include="itaSettings.h" />
+    <ClInclude Include="ml_timing.h" />
+    <ClInclude Include="npp_non_owning_buffer.h" />
+    <QtMoc Include="pco_edge.h" />
+    <ClInclude Include="pco.h" />
+    <QtMoc Include="pco_panda.h" />
+    <ClInclude Include="per_modulator_saveable_settings_cerealization.h" />
+    <ClInclude Include="frame_meta_data.h" />
+    <ClInclude Include="frame_size.h" />
+    <ClInclude Include="gui_message_kind.h" />
+    <ClInclude Include="h5file.hpp" />
+    <QtMoc Include="phase_shift_exposure_and_delay_selector.h" />
+    <QtMoc Include="path_load_save_selector.h" />
+    <ClInclude Include="instrument_configuration.h" />
+    <ClInclude Include="live_gui_settings.h" />
+    <ClInclude Include="live_gui_settings_cerealization.h" />
+    <ClInclude Include="ml_structs.h" />
+    <ClInclude Include="modulator_configuration.h" />
+    <QtMoc Include="per_modulator_saveable_settings_selector.h" />
+    <ClInclude Include="phase_processing.h" />
+    <ClInclude Include="phase_shift_exposure_and_delay.h" />
+    <ClInclude Include="program_config.h" />
+    <QtMoc Include="psi_function_pairs_selector.h" />
+    <QtMoc Include="psi_function_pair_selector.h" />
+    <QtMoc Include="qli_styled_slim_application_with_debug.h" />
+    <ClInclude Include="QSilentDoubleSpinBox.h" />
+    <ClInclude Include="qt_layout_disable.h" />
+    <ClInclude Include="render_settings.h" />
+    <ClInclude Include="qli_runtime_error.h" />
+    <QtMoc Include="pixel_dimensions_selector.h" />
+    <ClInclude Include="safe_move_to_screen.h" />
+    <ClInclude Include="scale.h" />
+    <ClInclude Include="scope_compute_settings.h" />
+    <QtMoc Include="scope_compute_settings_selector.h" />
+    <ClInclude Include="settings_file.h" />
+    <QtMoc Include="slm_control.h" />
+    <ClInclude Include="slm_holder.h" />
+    <QtMoc Include="settings_file_holder.h" />
+    <QtMoc Include="slm_pattern_generation_selector.h" />
+    <QtMoc Include="slm_pattern_model.h" />
+    <ClInclude Include="slm_state.h" />
+    <QtMoc Include="snapshot_label.h" />
+    <ClInclude Include="trakem2_stitching_structs.h" />
+    <QtMoc Include="trakem2_xy_selector.h" />
+    <ClInclude Include="ueffunet_engine_onnx_v1.h" />
+    <ClInclude Include="unet_engine_v1.h" />
+    <ClInclude Include="unet_engine_v2.h" />
+    <ClInclude Include="unet_engine_v3.h" />
+    <ClInclude Include="virtual_camera_settings.h" />
+    <ClInclude Include="virtual_camera_shared.h" />
+    <ClInclude Include="virtual_scope_devices.h" />
+    <ClInclude Include="virtual_slm.h" />
+    <ClInclude Include="windows_sleep.h" />
+    <ClInclude Include="write_debug_gpu.h" />
+    <ClInclude Include="write_tif.h" />
+    <ClInclude Include="zeiss_devices.h" />
+    <QtMoc Include="zeiss_camera.h" />
+    <QtMoc Include="xyz_focus_points_model.h" />
+    <ClInclude Include="xyz_focus_point_item.h" />
+    <QtMoc Include="virtual_camera_device.h" />
+    <QtMoc Include="trakem2_stitching_dialog.h" />
+    <QtMoc Include="tomogram_picker.h" />
+    <QtMoc Include="andor_device.h" />
+    <ClInclude Include="approx_equals.h" />
+    <ClInclude Include="arduino_retarder.h" />
+    <ClInclude Include="asi_devices.h" />
+    <ClInclude Include="background_update_functors.h" />
+    <QtMoc Include="band_pass_settings_selector.h" />
+    <ClInclude Include="bns_device.h" />
+    <ClInclude Include="bns_device_old.h" />
+    <ClInclude Include="break_into_ranges.h" />
+    <QtMoc Include="bsi_camera.h" />
+    <ClInclude Include="bsi_camera_common.h" />
+    <QtMoc Include="camera_config_selector.h" />
+    <QtMoc Include="camera_device.h" />
+    <ClInclude Include="camera_frame.h" />
+    <ClInclude Include="capture_dialog_camera_helper.h" />
+    <ClInclude Include="capture_item.h" />
+    <ClInclude Include="capture_modes.h" />
+    <ClInclude Include="cgal_triangulator.h" />
+    <QtMoc Include="channel_editor_delegate.h" />
+    <ClInclude Include="chrono_converters.h" />
+    <ClInclude Include="clamp_and_scale.h" />
+    <QtMoc Include="click_surface.h" />
+    <ClInclude Include="compact_light_path.h" />
+    <QtMoc Include="compact_light_path_holder.h" />
+    <QtMoc Include="compact_light_path_selector.h" />
+    <ClInclude Include="compute_engine.h" />
+    <ClInclude Include="compute_engine_demosaic.h" />
+    <ClInclude Include="compute_engine_shared.h" />
+    <ClInclude Include="com_persistent_device.h" />
+    <ClInclude Include="com_retarder_device.h" />
+    <QtMoc Include="condenser_config.h" />
+    <ClInclude Include="cuda_error_check.h" />
+    <ClInclude Include="cufft_error_check.h" />
+    <ClInclude Include="cufft_shared.h" />
+    <ClInclude Include="custom_layer.h" />
+    <ClInclude Include="device_factory.h" />
+    <QtMoc Include="directory_validator.h" />
+    <QtMoc Include="display_selector.h" />
+    <QtMoc Include="double_spin_box_delegate.h" />
+    <QtMoc Include="double_spin_box_longer.h" />
+    <ClInclude Include="dpm_gpu_structs.h" />
+    <ClInclude Include="dvi_slm_device.h" />
+    <ClInclude Include="emphemeral_main_gui_settings.h" />
+    <ClInclude Include="ensure_time_has_elapsed_barrier.h" />
+    <QtMoc Include="exposure_sequence_control.h" />
+    <QtMoc Include="file_line_edit.h" />
+    <QtMoc Include="file_validator.h" />
+    <QtMoc Include="fly_capture_device.h" />
+    <ClInclude Include="folder_line_edit.h" />
+    <ClInclude Include="fourier_filter.h" />
+    <QtMoc Include="full_interface_gui.h" />
+    <QtMoc Include="graphics_view_zoom.h" />
+    <ClInclude Include="grid_steps.h" />
+    <ClInclude Include="gui_message.h" />
+    <ClInclude Include="haar_wavelet_gpu.h" />
+    <QtMoc Include="hamamatsu_camera.h" />
+    <ClInclude Include="histogram_info.h" />
+    <ClInclude Include="internal_windows_timer_helpers.h" />
+    <ClInclude Include="io_work.h" />
+    <QtMoc Include="io_worker.h" />
+    <ClInclude Include="leica_devices.h" />
+    <QtMoc Include="light_path_selector.h" />
+    <QtMoc Include="limited_spinning_box_delegate.h" />
+    <ClInclude Include="line_scale.h" />
+    <ClInclude Include="live_settings_store.h" />
+    <QtMoc Include="material_picker.h" />
+    <ClInclude Include="meadowlark_retarder.h" />
+    <QtMoc Include="ml_remapper_selector.h" />
+    <ClInclude Include="ml_shared.h" />
+    <ClInclude Include="ml_transformer.h" />
+    <ClInclude Include="nikon_devices.h" />
+    <ClInclude Include="nikon_devices2.h" />
+    <ClInclude Include="npp_error_check.h" />
+    <ClInclude Include="npp_histogram.h" />
+    <ClInclude Include="other_patterns.h" />
+    <ClInclude Include="page_locked_allocator.h" />
+    <QtMoc Include="processing_quad_selector.h" />
+    <ClInclude Include="pitched_memory_unsafe_pointer.h" />
+    <ClInclude Include="pi_devices.h" />
+    <QtMoc Include="place_holder_widget.h" />
+    <ClInclude Include="polarization_filters.h" />
+    <ClInclude Include="pre_allocated_pool.h" />
+    <ClInclude Include="pseudo_spectrum.h" />
+    <QtMoc Include="QApplication_with_debug.h" />
+    <QtMoc Include="qcustomplot.h" />
+    <ClInclude Include="radial_spectrum_widget.h" />
+    <QtMoc Include="rectangle_model.h" />
+    <ClInclude Include="remake_directory.h" />
+    <QtMoc Include="render_container.h" />
+    <ClInclude Include="render_engine.h" />
+    <ClInclude Include="render_engine_pass_through.h" />
+    <QtMoc Include="render_shifter_selector.h" />
+    <QtMoc Include="render_widget.h" />
+    <ClInclude Include="resource1.h" />
+    <ClInclude Include="roi_item.h" />
+    <QtMoc Include="roi_model.h" />
+    <ClInclude Include="save_device_state.h" />
+    <QtMoc Include="scope.h" />
+    <QtMoc Include="scope_delay_delegate.h" />
+    <QtMoc Include="segmentation_editor.h" />
+    <QtMoc Include="slim_four.h" />
+    <ClInclude Include="slim_gpu_structs.h" />
+    <ClInclude Include="slm_device.h" />
+    <ClInclude Include="slm_enums.h" />
+    <ClInclude Include="snake_iterator.h" />
+    <ClInclude Include="snap_to_min_spinbox.h" />
+    <QtMoc Include="spin_box_fixed_increment.h" />
+    <QtMoc Include="spinnaker_camera.h" />
+    <ClInclude Include="start_stop.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="thorlabs_eom.h" />
+    <ClInclude Include="thread_priority.h" />
+    <ClInclude Include="thrust_gpu_var.h" />
+    <ClInclude Include="thrust_resize.h" />
+    <ClInclude Include="time_guarantee.h" />
+    <ClInclude Include="time_priority.h" />
+    <ClInclude Include="time_slice.h" />
+    <ClInclude Include="tinyxml2\tinyxml2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BNSWrapper_QLI\BNSWrapper_QLI.vcxproj">
+      <Project>{4c1fdd2b-03cd-4d5d-a3ed-6682e85d0699}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Slim5.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Slim2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="background_buffer_holder.cu" />
+    <CudaCompile Include="compute_engine_apply_background.cu" />
+    <CudaCompile Include="compute_engine_demosaic.cu" />
+    <CudaCompile Include="compute_engine_median_filter.cu" />
+    <CudaCompile Include="compute_engine_phase_modes.cu" />
+    <CudaCompile Include="compute_engine_queue.cu" />
+    <CudaCompile Include="compute_engine_queue_denoise.cu" />
+    <CudaCompile Include="compute_engine_queue_pre_allocate.cu" />
+    <CudaCompile Include="compute_engine_queue_shifter.cu" />
+    <CudaCompile Include="compute_engine_rescale.cu" />
+    <CudaCompile Include="compute_plan_gpu_var.cu" />
+    <CudaCompile Include="cufft_shared.cu" />
+    <CudaCompile Include="device_factory_shared.cu" />
+    <CudaCompile Include="dpm_gpu_structs.cu" />
+    <CudaCompile Include="auxillary_ml_processor.cu" />
+    <CudaCompile Include="fourier_filter.cu" />
+    <CudaCompile Include="haar_wavelet_gpu.cu" />
+    <CudaCompile Include="ml_transformer.cu" />
+    <CudaCompile Include="npp_error_check.cu" />
+    <CudaCompile Include="npp_histogram.cu" />
+    <CudaCompile Include="other_patterns.cu" />
+    <CudaCompile Include="polarization_filters.cu" />
+    <CudaCompile Include="polarizer_demosaic.cu" />
+    <CudaCompile Include="psuedo_spectrum.cu" />
+    <CudaCompile Include="read_buffer.cu" />
+    <CudaCompile Include="render_engine_pass_through.cu" />
+    <CudaCompile Include="render_widget.cu" />
+    <CudaCompile Include="render_widget_histogram.cu" />
+    <CudaCompile Include="slim_gpu_structs.cu" />
+    <CudaCompile Include="virtual_camera_device_npp.cu" />
+    <CudaCompile Include="write_debug_gpu.cu" />
+    <CudaCompile Include="write_tif.cu" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="band_pass_settings_selector.ui" />
+    <QtUic Include="calibration_info_selector.ui" />
+    <QtUic Include="camera_aoi_selector.ui" />
+    <QtUic Include="compact_light_path_selector.ui" />
+    <QtUic Include="condenser_config.ui" />
+    <QtUic Include="condenser_config_selector.ui" />
+    <QtUic Include="custom_pattern_holder.ui" />
+    <QtUic Include="darkfield_pattern_settings_selector.ui" />
+    <QtUic Include="itaSettings.ui" />
+    <QtUic Include="displacement_vectors_selector.ui" />
+    <QtUic Include="display_selector.ui" />
+    <QtUic Include="distorted_donut_selector.ui" />
+    <QtUic Include="dpm_settings_selector.ui" />
+    <QtUic Include="fixed_modulator_settings_selector.ui" />
+    <QtUic Include="four_frame_psi_settings_selector.ui" />
+    <QtUic Include="four_frame_psi_setting_selector.ui" />
+    <QtUic Include="full_interface_gui.ui" />
+    <QtUic Include="illumination_power_settings_selector.ui" />
+    <QtUic Include="light_path_selector.ui" />
+    <QtUic Include="material_info_selector.ui" />
+    <QtUic Include="material_picker.ui" />
+    <QtUic Include="microscope_light_path_selector.ui" />
+    <QtUic Include="microscope_move_action_selector.ui" />
+    <QtUic Include="ml_remapper_selector.ui" />
+    <QtUic Include="ml_settings_selector.ui" />
+    <QtUic Include="path_load_save_selector.ui" />
+    <QtUic Include="per_modulator_saveable_settings_selector.ui" />
+    <QtUic Include="per_pattern_modulator_settings_selector.ui" />
+    <QtUic Include="processing_quad_selector.ui" />
+    <QtUic Include="phase_shift_exposure_and_delay_selector.ui" />
+    <QtUic Include="psi_function_pairs_selector.ui" />
+    <QtUic Include="psi_function_pair_selector.ui" />
+    <QtUic Include="raw_io_work_meta_data_selector.ui" />
+    <QtUic Include="render_modifications_selector.ui" />
+    <QtUic Include="render_settings_selector.ui" />
+    <QtUic Include="render_shifter_selector.ui" />
+    <QtUic Include="pixel_dimensions_selector.ui" />
+    <QtUic Include="scope_compute_settings_selector.ui" />
+    <QtUic Include="scope_location_xyz_selector.ui" />
+    <QtUic Include="segmentation_editor.ui" />
+    <QtUic Include="semantic_feature_selector.ui" />
+    <QtUic Include="settings_file_holder.ui" />
+    <QtUic Include="slim_four.ui" />
+    <QtUic Include="slm_control.ui" />
+    <QtUic Include="slm_pattern_generation_selector.ui" />
+    <QtUic Include="tomogram_picker.ui" />
+    <QtUic Include="trakem2_stitching_dialog.ui" />
+    <QtUic Include="trakem2_xy_selector.ui" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 11.6.targets" />
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

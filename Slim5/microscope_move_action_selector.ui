@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>microscope_move_action_selector</class>
+ <widget class="QWidget" name="microscope_move_action_selector">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>158</width>
+    <height>51</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="time_label" name="stage_move_delay">
+     <property name="text">
+      <string>stage_move_delay</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="scope_location_xyz_selector" name="location" native="true"/>
+   </item>
+   <item>
+    <widget class="microscope_light_path_selector" name="light_path" native="true"/>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>time_label</class>
+   <extends>QLabel</extends>
+   <header>time_label.h</header>
+  </customwidget>
+  <customwidget>
+   <class>scope_location_xyz_selector</class>
+   <extends>QWidget</extends>
+   <header>scope_location_xyz_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>microscope_light_path_selector</class>
+   <extends>QWidget</extends>
+   <header>microscope_light_path_selector.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

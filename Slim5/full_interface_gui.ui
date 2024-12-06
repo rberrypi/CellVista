@@ -1,0 +1,1289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>full_interface_gui</class>
+ <widget class="QMainWindow" name="full_interface_gui">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1428</width>
+    <height>927</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Automated Scanning</string>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,0">
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QGroupBox" name="grbLeft">
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout" stretch="5,2,1">
+       <item>
+        <widget class="click_surface" name="gfxSurface">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>613</width>
+           <height>400</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableView" name="tblROI">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPlainTextEdit" name="metadata">
+         <property name="focusPolicy">
+          <enum>Qt::ClickFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Experiment notes saved in &quot;metadata.txt&quot;</string>
+         </property>
+         <property name="placeholderText">
+          <string>Experiment Metadata</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="grbRight">
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,0,0,0">
+       <item>
+        <widget class="QScrollArea" name="grbTile">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>667</width>
+            <height>218</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,0">
+             <item>
+              <layout class="QGridLayout" name="grdContrast">
+               <item row="0" column="8">
+                <widget class="QPushButton" name="btnSetEight">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>Add default channel 7</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="slim5.qrc">
+                   <normaloff>:/images/7.svg</normaloff>:/images/7.svg</iconset>
+                 </property>
+                 <property name="checkable">
+                  <bool>false</bool>
+                 </property>
+                 <property name="autoExclusive">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="6">
+                <widget class="QPushButton" name="btnSetSix">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>Add default channel 5</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="slim5.qrc">
+                   <normaloff>:/images/5.svg</normaloff>:/images/5.svg</iconset>
+                 </property>
+                 <property name="checkable">
+                  <bool>false</bool>
+                 </property>
+                 <property name="autoExclusive">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QPushButton" name="btnSetThree">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>Add default channel 2</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="slim5.qrc">
+                   <normaloff>:/images/2.svg</normaloff>:/images/2.svg</iconset>
+                 </property>
+                 <property name="checkable">
+                  <bool>false</bool>
+                 </property>
+                 <property name="autoExclusive">
+                  <bool>false</bool>
+                 </property>
+                 <property name="flat">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
+                <widget class="QPushButton" name="btnSetSeven">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>Add default channel 6</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="slim5.qrc">
+                   <normaloff>:/images/6.svg</normaloff>:/images/6.svg</iconset>
+                 </property>
+                 <property name="checkable">
+                  <bool>false</bool>
+                 </property>
+                 <property name="autoExclusive">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QPushButton" name="btnSetOne">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string extracomment="Preset 1, memory">Add default channel 0</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="slim5.qrc">
+                   <normaloff>:/images/0.svg</normaloff>:/images/0.svg</iconset>
+                 </property>
+                 <property name="checkable">
+                  <bool>false</bool>
+                 </property>
+                 <property name="checked">
+                  <bool>false</bool>
+                 </property>
+                 <property name="autoExclusive">
+                  <bool>false</bool>
+                 </property>
+                 <property name="flat">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="9">
+                <widget class="QPushButton" name="btnSetNine">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>Add default channel 8</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="slim5.qrc">
+                   <normaloff>:/images/8.svg</normaloff>:/images/8.svg</iconset>
+                 </property>
+                 <property name="checkable">
+                  <bool>false</bool>
+                 </property>
+                 <property name="autoExclusive">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4">
+                <widget class="QPushButton" name="btnSetFour">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>Add default channel 3</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="slim5.qrc">
+                   <normaloff>:/images/3.svg</normaloff>:/images/3.svg</iconset>
+                 </property>
+                 <property name="checkable">
+                  <bool>false</bool>
+                 </property>
+                 <property name="autoExclusive">
+                  <bool>false</bool>
+                 </property>
+                 <property name="flat">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QPushButton" name="btnSetTwo">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>Add default channel 1</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="slim5.qrc">
+                   <normaloff>:/images/1.svg</normaloff>:/images/1.svg</iconset>
+                 </property>
+                 <property name="checkable">
+                  <bool>false</bool>
+                 </property>
+                 <property name="autoExclusive">
+                  <bool>false</bool>
+                 </property>
+                 <property name="flat">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QPushButton" name="btnSetFive">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>Add default channel 4</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="slim5.qrc">
+                   <normaloff>:/images/4.svg</normaloff>:/images/4.svg</iconset>
+                 </property>
+                 <property name="checkable">
+                  <bool>false</bool>
+                 </property>
+                 <property name="autoExclusive">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <spacer name="horizontalSpacer_2">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnAddChannel">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="toolTip">
+                <string>Add another channel</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="slim5.qrc">
+                 <normaloff>:/images/plus.svg</normaloff>:/images/plus.svg</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="compact_light_path_holder" name="wdg_light_path_holder" native="true"/>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_5">
+         <property name="title">
+          <string>ROIs</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QGroupBox" name="groupBox_8">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="title">
+             <string>Navigation</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_5">
+             <item row="0" column="0">
+              <widget class="QPushButton" name="btnAddROI">
+               <property name="toolTip">
+                <string>Insert new ROI</string>
+               </property>
+               <property name="text">
+                <string>Insert (D)</string>
+               </property>
+               <property name="shortcut">
+                <string>D</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QPushButton" name="btnGotoROI">
+               <property name="toolTip">
+                <string>Move microscope to ROI</string>
+               </property>
+               <property name="text">
+                <string>Goto (G)</string>
+               </property>
+               <property name="shortcut">
+                <string>G</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QPushButton" name="btnInsertTomogram">
+               <property name="toolTip">
+                <string>Insert a new tomogram</string>
+               </property>
+               <property name="text">
+                <string>Tomogram</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QPushButton" name="btnNextROI">
+               <property name="toolTip">
+                <string>Set ROI Z position and advance</string>
+               </property>
+               <property name="text">
+                <string>Next (S)</string>
+               </property>
+               <property name="shortcut">
+                <string>S</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="2">
+              <widget class="QPushButton" name="btnSetROIZ">
+               <property name="toolTip">
+                <string>Set ROI Z position</string>
+               </property>
+               <property name="text">
+                <string>Set Z</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QPushButton" name="btnPeakTop">
+               <property name="toolTip">
+                <string>Move mircoscope to top of ROI</string>
+               </property>
+               <property name="text">
+                <string>Top (T)</string>
+               </property>
+               <property name="shortcut">
+                <string>T</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QPushButton" name="btnSetROIXYZ">
+               <property name="toolTip">
+                <string>Set ROI XYZ position</string>
+               </property>
+               <property name="text">
+                <string>Set XYZ</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QPushButton" name="btnDropROI">
+               <property name="toolTip">
+                <string>Remove ROI</string>
+               </property>
+               <property name="text">
+                <string>Remove (C)</string>
+               </property>
+               <property name="shortcut">
+                <string>C</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="2">
+              <widget class="QPushButton" name="btnPeakBottom">
+               <property name="toolTip">
+                <string>Move mircoscope to bottom of ROI</string>
+               </property>
+               <property name="text">
+                <string>Bottom (B)</string>
+               </property>
+               <property name="shortcut">
+                <string>B</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="title">
+             <string>Move ROI</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_4">
+             <item row="1" column="1">
+              <widget class="QPushButton" name="btnYMin">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="toolTip">
+                <string>Move selected ROI down (Shortcut: Alt + ↓)</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="slim5.qrc">
+                 <normaloff>:/images/arrow-down.svg</normaloff>:/images/arrow-down.svg</iconset>
+               </property>
+               <property name="shortcut">
+                <string>Alt+Down</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QPushButton" name="btnXPlus">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="toolTip">
+                <string>Move selected ROI right (Shortcut: Alt + →)</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="slim5.qrc">
+                 <normaloff>:/images/arrow-right.svg</normaloff>:/images/arrow-right.svg</iconset>
+               </property>
+               <property name="shortcut">
+                <string>Alt+Right</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QPushButton" name="btnCenterGrid">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="toolTip">
+                <string>Center ROI on the microscope location</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="slim5.qrc">
+                 <normaloff>:/images/arrows-pointing-to-center.svg</normaloff>:/images/arrows-pointing-to-center.svg</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QPushButton" name="btnYPlus">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="toolTip">
+                <string>Move selected ROI up (Shortcut: Alt + ↑)</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="slim5.qrc">
+                 <normaloff>:/images/arrow-up.svg</normaloff>:/images/arrow-up.svg</iconset>
+               </property>
+               <property name="shortcut">
+                <string>Alt+Up</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QPushButton" name="btnXmin">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="toolTip">
+                <string>Move selected ROI left (Shortcut: Alt + ←)</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="slim5.qrc">
+                 <normaloff>:/images/arrow-left.svg</normaloff>:/images/arrow-left.svg</iconset>
+               </property>
+               <property name="shortcut">
+                <string>Alt+Left</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="title">
+             <string>ROI Tools</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_2">
+             <item row="0" column="1">
+              <widget class="QPushButton" name="btnPlacePoints">
+               <property name="toolTip">
+                <string>Automatically inserts focus points at set intervals</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="slim5.qrc">
+                 <normaloff>:/images/auto_focus_points.svg</normaloff>:/images/auto_focus_points.svg</iconset>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="3">
+              <widget class="QPushButton" name="btnSetAllROIZ">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="toolTip">
+                <string>Set Z for all ROI's</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="slim5.qrc">
+                 <normaloff>:/images/z.svg</normaloff>:/images/z.svg</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QPushButton" name="btnMergePoints">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="toolTip">
+                <string>Merge convex hulls of last two ROIs</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="slim5.qrc">
+                 <normaloff>:/images/horizontal-merge.svg</normaloff>:/images/horizontal-merge.svg</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QPushButton" name="btnFillColumn">
+               <property name="toolTip">
+                <string>Fills the column with the selected value</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="slim5.qrc">
+                 <normaloff>:/images/column.svg</normaloff>:/images/column.svg</iconset>
+               </property>
+               <property name="shortcut">
+                <string>Ctrl+Alt+C</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QPushButton" name="btnRecalibrate">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="toolTip">
+                <string>Set ROI to current stage location, and move other ROIs to maintain relative spacing. Used when stage coordinates have changed.</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="slim5.qrc">
+                 <normaloff>:/images/map32.svg</normaloff>:/images/map32.svg</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QPushButton" name="btnDoublePoints">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="toolTip">
+                <string>Duplicates all ROIs</string>
+               </property>
+               <property name="toolTipDuration">
+                <number>-1</number>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="slim5.qrc">
+                 <normaloff>:/images/duplicate.svg</normaloff>:/images/duplicate.svg</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3">
+              <widget class="QPushButton" name="btnSixWellPlate">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="toolTip">
+                <string>Inserts 6 ROIs for a six well plate acquisition</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="slim5.qrc">
+                 <normaloff>:/images/six_well_plate.svg</normaloff>:/images/six_well_plate.svg</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QPushButton" name="btnUncheckAllROI">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="toolTip">
+                <string>Sets all ROIs as unverified</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="slim5.qrc">
+                 <normaloff>:/images/sad.svg</normaloff>:/images/sad.svg</iconset>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="grb_focus_points">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="title">
+          <string>Focus Points</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_9">
+            <property name="spacing">
+             <number>7</number>
+            </property>
+            <property name="sizeConstraint">
+             <enum>QLayout::SetDefaultConstraint</enum>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QTableView" name="xyzList">
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="verticalScrollBarPolicy">
+               <enum>Qt::ScrollBarAlwaysOn</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QPushButton" name="btn_add_focus_point">
+              <property name="toolTip">
+               <string>Insert new focus point</string>
+              </property>
+              <property name="text">
+               <string>Insert (E)</string>
+              </property>
+              <property name="shortcut">
+               <string>E</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_next_focus_point">
+              <property name="toolTip">
+               <string>Register focus point, move to next</string>
+              </property>
+              <property name="text">
+               <string>Next (W)</string>
+              </property>
+              <property name="shortcut">
+               <string>W</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_remove_focus_point">
+              <property name="toolTip">
+               <string>Remove focus point</string>
+              </property>
+              <property name="text">
+               <string>Remove (F)</string>
+              </property>
+              <property name="shortcut">
+               <string>F</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnSetFocus">
+              <property name="toolTip">
+               <string>Register focus point as verified </string>
+              </property>
+              <property name="text">
+               <string>Set Focus</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="groupBox">
+              <property name="title">
+               <string>Focus Points Tools</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout">
+               <item row="0" column="2">
+                <widget class="QPushButton" name="btnUpdateInterp">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>Draw local interpolated surface for each ROI</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="slim5.qrc">
+                   <normaloff>:/images/paint-format.svg</normaloff>:/images/paint-format.svg</iconset>
+                 </property>
+                 <property name="shortcut">
+                  <string>Ctrl+P</string>
+                 </property>
+                 <property name="checkable">
+                  <bool>true</bool>
+                 </property>
+                 <property name="autoExclusive">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
+                <widget class="QPushButton" name="btnMakeHull">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>Resizes the focus region ('convex hull') to match focus points</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="slim5.qrc">
+                   <normaloff>:/images/square.svg</normaloff>:/images/square.svg</iconset>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="12">
+                <widget class="QPushButton" name="btnUncheckAllXYZ">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>Sets all focus points as unverified</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="slim5.qrc">
+                   <normaloff>:/images/sad.svg</normaloff>:/images/sad.svg</iconset>
+                 </property>
+                 <property name="flat">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QPushButton" name="btnUpdateInterpGlobal">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>Draw global interpolated surface between all ROIs</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="slim5.qrc">
+                   <normaloff>:/images/paint-format2.svg</normaloff>:/images/paint-format2.svg</iconset>
+                 </property>
+                 <property name="checkable">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnTrakem2Settings">
+              <property name="toolTip">
+               <string>TrakEM2 tools</string>
+              </property>
+              <property name="text">
+               <string>Alignment Tools</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="title">
+          <string>Acquisition</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="path_load_save_selector" name="load_save_dialog" native="true"/>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QLabel" name="label_15">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Storage</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QProgressBar" name="prgStorage">
+              <property name="value">
+               <number>24</number>
+              </property>
+              <property name="format">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="cmb_file_grouping"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <item>
+             <widget class="QLabel" name="lblBG">
+              <property name="text">
+               <string>SLIM Background Not Set</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="cmbAcquireModes">
+              <property name="toolTip">
+               <string>Acquisition mode</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="cmb_switch_channel">
+              <property name="toolTip">
+               <string>Modes of channel switching during acquisition </string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="iterationTimes">
+              <property name="toolTip">
+               <string>number of iterations for the acquisition </string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="prefix">
+               <string>Time Points = </string>
+              </property>
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="maximum">
+               <number>99999</number>
+              </property>
+              <property name="value">
+               <number>1</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnDoIt">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="toolTip">
+               <string>Begin acquisition</string>
+              </property>
+              <property name="text">
+               <string>Acquire</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>click_surface</class>
+   <extends>QGraphicsView</extends>
+   <header>click_surface.h</header>
+  </customwidget>
+  <customwidget>
+   <class>compact_light_path_holder</class>
+   <extends>QWidget</extends>
+   <header>compact_light_path_holder.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>path_load_save_selector</class>
+   <extends>QWidget</extends>
+   <header>path_load_save_selector.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>metadata</tabstop>
+  <tabstop>btnSetOne</tabstop>
+  <tabstop>btnSetTwo</tabstop>
+  <tabstop>btnSetThree</tabstop>
+  <tabstop>btnSetFour</tabstop>
+  <tabstop>btnSetFive</tabstop>
+  <tabstop>btnSetSix</tabstop>
+  <tabstop>btnSetSeven</tabstop>
+  <tabstop>btnSetEight</tabstop>
+  <tabstop>btnSetNine</tabstop>
+  <tabstop>btnAddChannel</tabstop>
+  <tabstop>btnAddROI</tabstop>
+  <tabstop>btnNextROI</tabstop>
+  <tabstop>btnDropROI</tabstop>
+  <tabstop>btnGotoROI</tabstop>
+  <tabstop>btnSetROIXYZ</tabstop>
+  <tabstop>btnSetROIZ</tabstop>
+  <tabstop>btnInsertTomogram</tabstop>
+  <tabstop>btnPeakTop</tabstop>
+  <tabstop>btnPeakBottom</tabstop>
+  <tabstop>btnCenterGrid</tabstop>
+  <tabstop>btnYPlus</tabstop>
+  <tabstop>btnXmin</tabstop>
+  <tabstop>btnYMin</tabstop>
+  <tabstop>btnXPlus</tabstop>
+  <tabstop>btnFillColumn</tabstop>
+  <tabstop>btnPlacePoints</tabstop>
+  <tabstop>btnUncheckAllROI</tabstop>
+  <tabstop>btnSixWellPlate</tabstop>
+  <tabstop>btnRecalibrate</tabstop>
+  <tabstop>btnMergePoints</tabstop>
+  <tabstop>btnDoublePoints</tabstop>
+  <tabstop>btnSetAllROIZ</tabstop>
+  <tabstop>btn_add_focus_point</tabstop>
+  <tabstop>btn_next_focus_point</tabstop>
+  <tabstop>btn_remove_focus_point</tabstop>
+  <tabstop>btnSetFocus</tabstop>
+  <tabstop>btnUpdateInterp</tabstop>
+  <tabstop>btnUpdateInterpGlobal</tabstop>
+  <tabstop>btnMakeHull</tabstop>
+  <tabstop>btnUncheckAllXYZ</tabstop>
+ </tabstops>
+ <resources>
+  <include location="slim5.qrc"/>
+ </resources>
+ <connections/>
+</ui>

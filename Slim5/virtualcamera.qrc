@@ -1,0 +1,134 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+  <qresource >
+
+    <file>test_images/PSI/neurons_1/test_0.tif</file>
+    <file>test_images/PSI/neurons_1/test_1.tif</file>
+    <file>test_images/PSI/neurons_1/test_2.tif</file>
+    <file>test_images/PSI/neurons_1/test_3.tif</file>
+
+    <file>test_images/PSI/neurons_2/test_0.tif</file>
+    <file>test_images/PSI/neurons_2/test_1.tif</file>
+    <file>test_images/PSI/neurons_2/test_2.tif</file>
+    <file>test_images/PSI/neurons_2/test_3.tif</file>
+
+    <file>test_images/PSI/neurons_3/test_0.tif</file>
+    <file>test_images/PSI/neurons_3/test_1.tif</file>
+    <file>test_images/PSI/neurons_3/test_2.tif</file>
+    <file>test_images/PSI/neurons_3/test_3.tif</file>
+
+    <file>test_images/PSI/qdic_set_1/test_0.tif</file>
+    <file>test_images/PSI/qdic_set_1/test_1.tif</file>
+    <file>test_images/PSI/qdic_set_1/test_2.tif</file>
+    <file>test_images/PSI/qdic_set_1/test_3.tif</file>
+
+    <file>test_images/PSI/qdic_set_2/test_0.tif</file>
+    <file>test_images/PSI/qdic_set_2/test_1.tif</file>
+    <file>test_images/PSI/qdic_set_2/test_2.tif</file>
+    <file>test_images/PSI/qdic_set_2/test_3.tif</file>
+
+    <file>test_images/PSI/rbcs_set_1/test_0.tif</file>
+    <file>test_images/PSI/rbcs_set_1/test_1.tif</file>
+    <file>test_images/PSI/rbcs_set_1/test_2.tif</file>
+    <file>test_images/PSI/rbcs_set_1/test_3.tif</file>
+
+    <file>test_images/PSI/rbcs_set_2/test_0.tif</file>
+    <file>test_images/PSI/rbcs_set_2/test_1.tif</file>
+    <file>test_images/PSI/rbcs_set_2/test_2.tif</file>
+    <file>test_images/PSI/rbcs_set_2/test_3.tif</file>
+
+    <file>test_images/PSI/segmentation_phantom/test_0.tif</file>
+    <file>test_images/PSI/segmentation_phantom/test_1.tif</file>
+    <file>test_images/PSI/segmentation_phantom/test_2.tif</file>
+    <file>test_images/PSI/segmentation_phantom/test_3.tif</file>
+
+    <file>test_images/PSI/sperm_set_1/test_0.tif</file>
+    <file>test_images/PSI/sperm_set_1/test_1.tif</file>
+    <file>test_images/PSI/sperm_set_1/test_2.tif</file>
+    <file>test_images/PSI/sperm_set_1/test_3.tif</file>
+
+    <file>test_images/PSI/sperm_set_2/test_0.tif</file>
+    <file>test_images/PSI/sperm_set_2/test_1.tif</file>
+    <file>test_images/PSI/sperm_set_2/test_2.tif</file>
+    <file>test_images/PSI/sperm_set_2/test_3.tif</file>
+
+    <file>test_images/PSI/sperm_set_3/test_0.tif</file>
+    <file>test_images/PSI/sperm_set_3/test_1.tif</file>
+    <file>test_images/PSI/sperm_set_3/test_2.tif</file>
+    <file>test_images/PSI/sperm_set_3/test_3.tif</file>
+
+    <file>test_images/PSI/color_psi_phase_contrast/test_0.tif</file>
+    <file>test_images/PSI/color_psi_phase_contrast/test_1.tif</file>
+    <file>test_images/PSI/color_psi_phase_contrast/test_2.tif</file>
+    <file>test_images/PSI/color_psi_phase_contrast/test_3.tif</file>
+
+    <file>test_images/PSI/color_psi_dic_with_taps/test_0.tif</file>
+    <file>test_images/PSI/color_psi_dic_with_taps/test_1.tif</file>
+    <file>test_images/PSI/color_psi_dic_with_taps/test_2.tif</file>
+    <file>test_images/PSI/color_psi_dic_with_taps/test_3.tif</file>
+    
+    <file>test_images/PSI/tissue_1/test_0.tif</file>
+    <file>test_images/PSI/tissue_1/test_1.tif</file>
+    <file>test_images/PSI/tissue_1/test_2.tif</file>
+    <file>test_images/PSI/tissue_1/test_3.tif</file>
+
+    <file>test_images/PSI/hela_set_1_5x/test_0.tif</file>
+    <file>test_images/PSI/hela_set_1_5x/test_1.tif</file>
+    <file>test_images/PSI/hela_set_1_5x/test_2.tif</file>
+    <file>test_images/PSI/hela_set_1_5x/test_3.tif</file>  
+
+    <file>test_images/PSI/hela_set_2_10x/test_0.tif</file>
+    <file>test_images/PSI/hela_set_2_10x/test_1.tif</file>
+    <file>test_images/PSI/hela_set_2_10x/test_2.tif</file>
+    <file>test_images/PSI/hela_set_2_10x/test_3.tif</file>
+
+    <file>test_images/PSI/mosaic_color_tissue/test_0.tif</file>
+    <file>test_images/PSI/mosaic_color_tissue/test_1.tif</file>
+    <file>test_images/PSI/mosaic_color_tissue/test_2.tif</file>
+    <file>test_images/PSI/mosaic_color_tissue/test_3.tif</file>
+	
+    <file>test_images\PSI\mosaiced_polarization_phantom\test_0.tif</file>
+    <file>test_images\PSI\mosaiced_polarization_phantom\test_1.tif</file>
+    <file>test_images\PSI\mosaiced_polarization_phantom\test_2.tif</file>
+    <file>test_images\PSI\mosaiced_polarization_phantom\test_3.tif</file>
+
+    <file>test_images\PSI\mosaiced_phantom_qdic\test_0.tif</file>
+    <file>test_images\PSI\mosaiced_phantom_qdic\test_1.tif</file>
+    <file>test_images\PSI\mosaiced_phantom_qdic\test_2.tif</file>
+    <file>test_images\PSI\mosaiced_phantom_qdic\test_3.tif</file>
+
+    <file>test_images\PSI\dpm_regular\test_0_in.tif</file>
+    <file>test_images\PSI\dpm_regular\test_1_in.tif</file>
+    <file>test_images\PSI\dpm_regular\test_2_in.tif</file>
+    <file>test_images\PSI\dpm_regular\test_3_in.tif</file>
+    <file>test_images\PSI\dpm_regular\test_0_back.tif</file>
+    <file>test_images\PSI\dpm_regular\test_1_back.tif</file>
+    <file>test_images\PSI\dpm_regular\test_2_back.tif</file>
+    <file>test_images\PSI\dpm_regular\test_3_back.tif</file>
+
+    <file>test_images\PSI\dpm_polarization_psi\test_0_in.tif</file>
+    <file>test_images\PSI\dpm_polarization_psi\test_1_in.tif</file>
+    <file>test_images\PSI\dpm_polarization_psi\test_2_in.tif</file>
+    <file>test_images\PSI\dpm_polarization_psi\test_3_in.tif</file>
+    <file>test_images\PSI\dpm_polarization_psi\test_0_back.tif</file>
+    <file>test_images\PSI\dpm_polarization_psi\test_1_back.tif</file>
+    <file>test_images\PSI\dpm_polarization_psi\test_2_back.tif</file>
+    <file>test_images\PSI\dpm_polarization_psi\test_3_back.tif</file>
+	
+    <file>test_images\PSI\qdic_rbc_set_1\test_0.tif</file>
+    <file>test_images\PSI\qdic_rbc_set_1\test_1.tif</file>
+    <file>test_images\PSI\qdic_rbc_set_1\test_2.tif</file>
+    <file>test_images\PSI\qdic_rbc_set_1\test_3.tif</file>
+
+    <file>test_images\PSI\qdic_dapi_set_1\test_0.tif</file>
+    <file>test_images\PSI\qdic_dapi_set_1\test_1.tif</file>
+    <file>test_images\PSI\qdic_dapi_set_1\test_2.tif</file>
+    <file>test_images\PSI\qdic_dapi_set_1\test_3.tif</file>
+	
+    <file>test_images\PSI\sw480_10x_slim_ml_set\test_0.tif</file>
+    <file>test_images\PSI\sw480_10x_slim_ml_set\test_1.tif</file>
+    <file>test_images\PSI\sw480_10x_slim_ml_set\test_2.tif</file>
+    <file>test_images\PSI\sw480_10x_slim_ml_set\test_3.tif</file>
+	
+  </qresource>
+</RCC>

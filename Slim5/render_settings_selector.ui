@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>render_settings_selector</class>
+ <widget class="QWidget" name="render_settings_selector">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>render_settings_selector</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="ml_settings_selector" name="ml_settings" native="true"/>
+   </item>
+   <item>
+    <widget class="current_display_settings_selector" name="current_display_settings" native="true"/>
+   </item>
+   <item>
+    <widget class="render_modifications_selector" name="render_modifications" native="true"/>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ml_settings_selector</class>
+   <extends>QWidget</extends>
+   <header>ml_settings_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>current_display_settings_selector</class>
+   <extends>QWidget</extends>
+   <header>current_display_settings_selector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>render_modifications_selector</class>
+   <extends>QWidget</extends>
+   <header>render_modifications_selector.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

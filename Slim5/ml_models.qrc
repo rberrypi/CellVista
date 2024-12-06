@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!DOCTYPE RCC>
+<RCC version="1.0">
+  <qresource>
+	<file>ml_models/best_so_far_weight_tp.h5</file>
+  </qresource>
+</RCC>
+

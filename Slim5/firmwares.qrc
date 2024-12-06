@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE RCC>
+<RCC version="1.0">
+  <qresource>
+	<file>firmware_assets/avrdude.conf</file>
+	<file>firmware_assets/avrdude.exe</file>
+	<file>firmware_assets/simple_passthrough.hex</file>
+  </qresource>
+</RCC>
+

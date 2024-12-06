@@ -1,0 +1,149 @@
+{
+    "value0": {
+        "per_channel_settings": {
+            "modulator_settings": {
+                "slim_pattern_settings": {
+                    "qsb_e": 1.0700000524520875,
+                    "qsb_f": 1.0
+                },
+                "star_pattern_settings": {
+                    "qsb_inner_angle": 0.0,
+                    "qsb_outer_angle": 0.0,
+                    "qsb_master_rotation": 0.0
+                },
+                "rings_pattern_settings": {
+                    "qsb_period": 0.0,
+                    "qsb_thickness": 0.0
+                },
+                "slm_beam_settings": {
+                    "qsb_x1": 263.0,
+                    "qsb_y1": 255.0,
+                    "qsb_slim_inner_diameter": 158.0,
+                    "qsb_slim_outer_diameter": 253.0
+                },
+                "slm": 0,
+                "cycle_internal_delay_us": {
+                    "count": 60
+                },
+                "voltage_max": 0.0
+            },
+            "scope_compute_settings": {
+                "scope_compute_dimensions": {
+                    "pixel_ratio": 2.0,
+                    "coherence_length": 1.0
+                },
+                "qdic_scope_settings": {
+                    "qsb_qdic_shear_angle": 0.0,
+                    "qsb_qdic_shear_dx": 1.0
+                },
+                "objective_attenuation": 4.0,
+                "stage_overlap": 0.949999988079071,
+                "wave_lengths": {
+                    "value0": 0.0,
+                    "value1": 0.0,
+                    "value2": 0.0
+                }
+            },
+            "dpm_settings": {
+                "dpm_phase_left_column": 0,
+                "dpm_phase_top_row": 0,
+                "dpm_phase_width": 64,
+                "dpm_amp_left_column": 0,
+                "dpm_amp_top_row": 0,
+                "dpm_amp_width": 64
+            },
+            "material_info": {
+                "n_cell": 1.5959999561309815,
+                "n_media": 1.5180000066757203,
+                "mass_inc": 0.20000000298023225,
+                "obj_height": 0.009999999776482582
+            }
+        },
+        "patterns": {
+            "0": {
+                "filepath": "",
+                "slm_value": 190.0,
+                "weights": {
+                    "value0": {
+                        "top": 0.0,
+                        "bot": 0.0,
+                        "constant": 0.0
+                    },
+                    "value1": {
+                        "top": 0.0,
+                        "bot": 0.0,
+                        "constant": 0.0
+                    },
+                    "value2": {
+                        "top": 0.0,
+                        "bot": 0.0,
+                        "constant": 0.0
+                    }
+                }
+            },
+            "1": {
+                "filepath": "",
+                "slm_value": 200.0,
+                "weights": {
+                    "value0": {
+                        "top": 0.0,
+                        "bot": 0.0,
+                        "constant": 0.0
+                    },
+                    "value1": {
+                        "top": 0.0,
+                        "bot": 0.0,
+                        "constant": 0.0
+                    },
+                    "value2": {
+                        "top": 0.0,
+                        "bot": 0.0,
+                        "constant": 0.0
+                    }
+                }
+            },
+            "2": {
+                "filepath": "",
+                "slm_value": 210.5,
+                "weights": {
+                    "value0": {
+                        "top": 0.0,
+                        "bot": 0.0,
+                        "constant": 0.0
+                    },
+                    "value1": {
+                        "top": 0.0,
+                        "bot": 0.0,
+                        "constant": 0.0
+                    },
+                    "value2": {
+                        "top": 0.0,
+                        "bot": 0.0,
+                        "constant": 0.0
+                    }
+                }
+            },
+            "3": {
+                "filepath": "",
+                "slm_value": 222.5,
+                "weights": {
+                    "value0": {
+                        "top": 0.0,
+                        "bot": 0.0,
+                        "constant": 0.0
+                    },
+                    "value1": {
+                        "top": 0.0,
+                        "bot": 0.0,
+                        "constant": 0.0
+                    },
+                    "value2": {
+                        "top": 0.0,
+                        "bot": 0.0,
+                        "constant": 0.0
+                    }
+                }
+            }
+        }
+    }
+}

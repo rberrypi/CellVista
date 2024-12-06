@@ -1,0 +1,70 @@
+{
+    "value0": {
+        "value0": {
+            "value0": {
+                "indxGain": 0,
+                "indxBin": 0,
+                "indxROI": 0
+            },
+            "value1": {
+                "doBandPass": false,
+                "minD": 0,
+                "maxD": 25
+            },
+            "value2": {
+                "atten": 0,
+                "pixel_ratio": 0
+            },
+            "value3": {
+                "bg": 0,
+                "bgmode": 0
+            },
+            "dpm_guess": {
+                "dpm_redo_bg": false,
+                "dpm_snap_bg": true,
+                "dpm_u0": 0,
+                "dpm_v0": 0,
+                "dpm_w": 0
+            },
+            "material": {
+                "n_cell": 0,
+                "n_media": 0,
+                "lambda": 0,
+                "height": 0
+            },
+            "denoise_mode": 0,
+            "what": 0,
+            "doFT": false
+        },
+        "value1": {
+            "slm": 0,
+            "exp": 15,
+            "nxt": 15
+        },
+        "value2": {
+            "btnSLIM": true,
+            "btnPiston": false,
+            "btnCrosses": false,
+            "qsbX1": 0,
+            "qsbY1": 0,
+            "qsbIr": 0,
+            "qsbOr": 0,
+            "qsbE": 0,
+            "qsbF": 0,
+            "qsbPat0": 0,
+            "qsbPat1": 0,
+            "qsbPat2": 0,
+            "qsbPat3": 0,
+            "qsbPatRef": 0,
+            "qsbPatOffset": 0
+        },
+        "value3": {
+            "min": 0,
+            "max": 65535,
+            "lut": 0,
+            "active_program": 0
+        },
+        "pat_end": 1,
+        "mek": 0
+    }
+}

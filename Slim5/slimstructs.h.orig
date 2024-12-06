@@ -1,0 +1,871 @@
+#pragma once
+#ifndef SCOPESTATE_H
+#define SCOPESTATE_H
+//todo move operators into classes
+#include <iostream>
+#include <vector>
+#include <map>
+#include <array>
+#include <chrono>
+#include <string>
+#include <atomic>
+//todo more explicit template instantiations
+//http://stackoverflow.com/questions/37041850/reduce-sizes-of-template-headers?noredirect=1&lq=1
+typedef float*  __restrict sse_t;
+
+enum class PhaseRetreival { Camera, SLIM, SLIMDemux, GLIM, GLIMDemux, ACDC, MutalIntensity, DPM, PistonScan };
+const std::map<PhaseRetreival, int> PhaseRetreival_pats = {
+	{ PhaseRetreival::Camera, 1 },{ PhaseRetreival::SLIM, 4 },{ PhaseRetreival::SLIMDemux, 4 },{ PhaseRetreival::GLIM, 4 },{ PhaseRetreival::GLIMDemux, 4 },
+	{ PhaseRetreival::ACDC, 4 },{ PhaseRetreival::MutalIntensity, 4 },{ PhaseRetreival::DPM, 1 }, { PhaseRetreival::PistonScan, 256}
+};
+//todo add terminal pattern macro
+//todo this doesn't actually work because we need to subclass the combobox to store our enums, sad
+const std::map<PhaseRetreival, std::wstring> PhaseRetreival_suffix = {
+	{ PhaseRetreival::Camera, L"Camera" }, { PhaseRetreival::SLIM, L"SLIM" },{ PhaseRetreival::SLIMDemux, L"SLIMDemux" },
+	{ PhaseRetreival::GLIM, L"GLIM" }, { PhaseRetreival::GLIMDemux, L"Hilbert" },
+	{ PhaseRetreival::ACDC, L"ACDC" },{ PhaseRetreival::MutalIntensity, L"Intensity" },{ PhaseRetreival::DPM, L"MISS" }
+};
+
+enum class LiveCycleMode { EveryFrame, HalfCycle, FullCycle };
+const std::map<PhaseRetreival, LiveCycleMode> PhaseRetreival_prefered_live_mode = {
+	{ PhaseRetreival::Camera, LiveCycleMode::EveryFrame },{ PhaseRetreival::SLIM, LiveCycleMode::EveryFrame },{ PhaseRetreival::SLIMDemux, LiveCycleMode::HalfCycle },
+	{ PhaseRetreival::GLIM, LiveCycleMode::EveryFrame },{ PhaseRetreival::GLIMDemux, LiveCycleMode::EveryFrame },
+	{ PhaseRetreival::ACDC, LiveCycleMode::EveryFrame },{ PhaseRetreival::MutalIntensity, LiveCycleMode::EveryFrame },{ PhaseRetreival::DPM, LiveCycleMode::EveryFrame }
+};
+
+enum class PhaseProcessing { Phase, Mass, Height, RefIdx, GLIM_df_dx, None };
+const std::map<PhaseRetreival, std::vector<PhaseProcessing>> PhaseRetreival_PhaseProcessing = {
+	{ PhaseRetreival::Camera, { PhaseProcessing::None} },
+	{ PhaseRetreival::SLIM,{ PhaseProcessing::Phase, PhaseProcessing::None,  PhaseProcessing::Mass, PhaseProcessing::Height, PhaseProcessing::RefIdx } },
+	{ PhaseRetreival::SLIMDemux,{ PhaseProcessing::Phase,PhaseProcessing::None, PhaseProcessing::Mass, PhaseProcessing::Height, PhaseProcessing::RefIdx } },
+	{ PhaseRetreival::GLIM,{ PhaseProcessing::Phase,PhaseProcessing::None}},
+	{ PhaseRetreival::GLIMDemux,{ PhaseProcessing::Phase,PhaseProcessing::None, PhaseProcessing::Mass, PhaseProcessing::Height, PhaseProcessing::RefIdx } },
+	{ PhaseRetreival::ACDC,{ PhaseProcessing::Phase,PhaseProcessing::None } },
+	{ PhaseRetreival::MutalIntensity,{ PhaseProcessing::Phase,PhaseProcessing::None } },
+	{ PhaseRetreival::DPM,{ PhaseProcessing::Phase, PhaseProcessing::None, PhaseProcessing::Mass, PhaseProcessing::Height, PhaseProcessing::RefIdx } }
+};
+
+const std::map<PhaseProcessing, std::wstring> PhaseProcessing_suffix = {
+	{ PhaseProcessing::None, L"" },{ PhaseProcessing::Mass, L"Mass" },
+	{ PhaseProcessing::Height, L"Height" },{ PhaseProcessing::RefIdx, L"RefIdx" }
+};
+
+struct ComputeResult
+{
+	float compute_val;
+	explicit ComputeResult(float Compute_Value) : compute_val(Compute_Value) {}
+	ComputeResult() :ComputeResult(std::numeric_limits<float>::quiet_NaN())
+	{
+
+	}
+};
+
+struct RenderSettings
+{
+	float min, max;
+	int lut, active_program;//which pattern to laod
+	RenderSettings(float Min, float Max, int Lut, int Active_program) : min(Min), max(Max), lut(Lut), active_program(Active_program) {};
+	RenderSettings() :RenderSettings(0, 0, 0, 0) {}
+	friend bool operator== (const RenderSettings &a, const RenderSettings &b)
+	{
+		return (a.min == b.min) && (a.max == b.max) && (a.lut == b.lut) && (a.active_program == b.active_program);
+	}
+};
+
+struct MaterialInfo
+{
+	float n_cell, n_media;
+	float lambda, mass_inc;
+	float obj_height;
+	MaterialInfo() : MaterialInfo(1.518, 1.596, 0.59, 0.2, 0.01) {};
+	MaterialInfo(float No, float Nc, float L, float Inc, float Height) : n_cell(Nc), n_media(No), lambda(L), mass_inc(Inc), obj_height(Height)
+	{
+		;
+	}
+};
+
+struct CameraConfig
+{
+	unsigned char indxGain, indxBin, indxROI;
+	bool is_burst;
+	bool enable_cooling;//on Andor Cameras this needs to be set when the camera is off!
+	friend bool operator== (const CameraConfig &a, const CameraConfig &b)
+	{
+		return (a.indxGain == b.indxGain) && (a.indxBin == b.indxBin) && (a.indxROI == b.indxROI) && (a.is_burst == b.is_burst);
+	}
+	friend bool operator!= (const CameraConfig &a, const CameraConfig &b)
+	{
+		return !(a == b);
+	}
+	explicit CameraConfig(unsigned char IndGain, unsigned char IndBin, unsigned char IndROI, bool Is_Burst, bool Enable_cooling) :
+		indxGain(IndGain), indxBin(IndBin), indxROI(IndROI), is_burst(Is_Burst)
+	{
+	}
+	CameraConfig() : CameraConfig(0, 0, 0, false,true) {};
+	static CameraConfig invalid_cam_config()
+	{
+		return CameraConfig(255, 255, 255, false,true);
+	}
+	static void header(std::ostream& os = std::cout);
+	friend std::ostream& operator<<(std::ostream& os, const CameraConfig& ia);
+};
+
+struct FrameSize
+{
+	int width, height;//not 32bit safe, oh well
+	FrameSize() : FrameSize(0, 0) {}
+	explicit FrameSize(int Width, int Height) : width(Width), height(Height) { ; }
+	int n() const
+	{
+		return width*height;
+	}
+	static void header(std::ostream& os = std::cout);
+	friend std::ostream& operator<<(std::ostream& os, const FrameSize& ia);
+	FrameSize transpose_size() const
+	{
+		return FrameSize(height, width);
+	}
+};
+
+inline bool operator==(const FrameSize& lhs, const FrameSize& rhs)
+{
+	return (lhs.height == rhs.height) && (lhs.width == rhs.width);
+}
+
+inline bool operator!=(const FrameSize& lhs, const FrameSize& rhs)
+{
+	return !(lhs == rhs);
+}
+
+inline bool operator<(const FrameSize& lhs, const FrameSize& rhs)
+{
+	return lhs.n() < rhs.n();
+}
+
+struct RenderDimensions final : FrameSize
+{
+	float digitalScale;
+	RenderDimensions() :RenderDimensions(FrameSize(), 1) {}
+	RenderDimensions(const FrameSize& frame_size, float scale) :FrameSize(frame_size), digitalScale(scale)
+	{
+
+	}
+};
+
+struct DPMSettings
+{
+	//specifies the DPM rectangle
+	bool dpm_snap_bg;
+	bool dpm_redo_bg;
+	int dpm_left_column, dpm_top_row, dpm_width;
+	const static int dpm_min_width = 128;
+	bool isValid() const
+	{
+		return dpm_width > 0;
+	}
+	DPMSettings() : dpm_snap_bg(true), dpm_redo_bg(false), dpm_left_column(0), dpm_top_row(0), dpm_width(0) {}
+	DPMSettings(int U0, int V0, unsigned int P) :
+		dpm_snap_bg(true), dpm_redo_bg(false), dpm_left_column(U0), dpm_top_row(V0), dpm_width(P)
+	{
+
+	}
+	bool operator== (const DPMSettings &c1) const
+	{
+		return (dpm_left_column == c1.dpm_left_column && dpm_top_row == c1.dpm_top_row && dpm_width == c1.dpm_width);
+	}
+	bool operator!= (const DPMSettings &c1) const
+	{
+		return !(*this == c1);
+	}
+	friend std::ostream& operator<<(std::ostream& os, const DPMSettings& ia);
+	//For optimal performance the frame size should be a multiple of this, typically we crop the camera sensor
+	//Typically GPU FFTs are limited by kernel switching time, so switching between the 2,3,4,5 radix kernels kills performance
+	static const auto gpu_size_factor = 128;
+	static int DPMSizeHint(int side)
+	{
+		return side / gpu_size_factor;
+	}
+	static FrameSize DPMSizeHint(const FrameSize& in)
+	{
+		auto h = DPMSizeHint(in.height);
+		auto w = DPMSizeHint(in.width);
+		return FrameSize(w, h);
+	}
+};
+
+struct DPMBackground_host : DPMSettings
+{
+	std::vector<unsigned char> image_ft_log_h;// this gets wired to the GUI
+	FrameSize image_ft_log_h_size;
+};
+
+template<class T>
+const T& min_e(const T& a, const T& b)//don't polute with <algorithm>
+{
+	return (b < a) ? b : a;
+}
+template<class T>
+const T& max_e(const T& a, const T& b)
+{
+	return (a < b) ? b : a;
+}
+struct CaptureTimes
+{
+	static const int fixed_patterns = 4;
+	std::array<std::chrono::microseconds, fixed_patterns> exposure;
+	std::chrono::microseconds slm_stability_time;
+	static void header(std::ostream& os = std::cout);
+	friend std::ostream& operator<<(std::ostream& os, const CaptureTimes& ia);
+	std::chrono::microseconds getMinExposure() const
+	{
+		return min_e(min_e(exposure[0], exposure[1]), min_e(exposure[2], exposure[3]));
+	}
+	std::chrono::microseconds getMaxExposure() const
+	{
+		return max_e(max_e(exposure[0], exposure[1]), max_e(exposure[2], exposure[3]));
+	}
+	bool isSameExposure() const
+	{
+		return (exposure[0] == exposure[1]) && (exposure[1] == exposure[2]) && (exposure[2] == exposure[3]);
+	}
+	void setExposure(const std::chrono::microseconds& new_exposure)
+	{
+		std::fill(exposure.begin(), exposure.end(), new_exposure);
+	}
+	void setExposure(const std::chrono::microseconds& new_exposure, int pattern)
+	{
+		auto real_pattern = pattern % fixed_patterns;
+		exposure[real_pattern] = new_exposure;
+	}
+	std::chrono::microseconds getDuration(int pattern) const
+	{
+		auto expo_part = slm_stability_time + getExposure(pattern);
+		return expo_part;
+	}
+	std::chrono::microseconds getExposure(int pattern) const
+	{
+		auto real_pattern = pattern % fixed_patterns;
+		return exposure[real_pattern];
+	}
+	std::array<float, fixed_patterns> getComp() const
+	{
+		std::array<float, fixed_patterns> comp = { { 1 / (1.f*exposure[0].count()), 1 / (1.f*exposure[1].count()), 1 / (1.f*exposure[2].count()), 1 / (1.f*exposure[3].count()) } };
+		return comp;
+	}
+	//
+	CaptureTimes() : CaptureTimes(std::chrono::microseconds(0), std::chrono::microseconds(1)) {};
+	//todo replace with constructor inheritance
+	explicit CaptureTimes(std::chrono::microseconds SLM, std::chrono::microseconds ExpA, std::chrono::microseconds ExpB, std::chrono::microseconds ExpC, std::chrono::microseconds ExpD) : slm_stability_time(SLM)
+	{
+		exposure[0] = ExpA;
+		exposure[1] = ExpB;
+		exposure[2] = ExpC;
+		exposure[3] = ExpD;
+	}
+	explicit CaptureTimes(std::chrono::microseconds SLM, std::chrono::microseconds EXP) :
+		slm_stability_time(SLM)
+	{
+		//nxt = std::max(static_cast<miliperoid>(SLM + EXP), NXT);
+		setExposure(EXP);
+	}
+	friend bool operator== (const CaptureTimes &a, const CaptureTimes &b)
+	{
+		return (a.exposure[0] == b.exposure[0]) && (a.exposure[1] == b.exposure[1]) && (a.exposure[2] == b.exposure[2]) && (a.exposure[3] == b.exposure[3]) && (a.slm_stability_time == b.slm_stability_time);
+	}
+};
+
+struct ScopeLocXY
+{
+	static float null()
+	{
+		return std::numeric_limits<float>::quiet_NaN();
+	}
+	float x, y;
+	ScopeLocXY(float X, float Y) : x(X), y(Y) {}
+	ScopeLocXY() : ScopeLocXY(null(), null()) {}
+	friend bool operator== (const ScopeLocXY &a, const ScopeLocXY &b)
+	{
+		return (a.x == b.x) && (a.y == b.y);
+	}
+	friend bool operator!= (const ScopeLocXY &a, const ScopeLocXY &b)
+	{
+		return !(a == b);
+	}
+};
+
+struct ScopeLoc : ScopeLocXY
+{
+	float z;
+	friend std::ostream& operator<<(std::ostream& os, const ScopeLoc& ia);
+	static void header(std::ostream& os = std::cout);
+
+	explicit ScopeLoc() : ScopeLoc(ScopeLocXY::null(), ScopeLocXY::null(), ScopeLocXY::null()) {}//teh c++11
+	explicit ScopeLoc(float X, float Y, float Z) : ScopeLocXY(X, Y), z(Z)
+	{
+	}
+	bool isValid() const
+	{
+		auto bad = (isnan(x) || isnan(y) || isnan(z));
+		return bad;
+	}
+};
+
+struct ScopeDelays
+{
+	std::chrono::microseconds stage_move_delay, roi_move_delay;
+	explicit ScopeDelays(std::chrono::microseconds StageMove, std::chrono::microseconds ROIDelay) : stage_move_delay(StageMove), roi_move_delay(ROIDelay)
+	{
+	}
+	ScopeDelays() : ScopeDelays(std::chrono::microseconds(0), std::chrono::microseconds(0)) {};
+	friend std::ostream& operator<<(std::ostream& os, const ScopeDelays& ia);
+	static void header(std::ostream& os = std::cout);
+	std::chrono::microseconds totaltime() const
+	{
+		return stage_move_delay + roi_move_delay;
+	}
+
+};
+
+struct ScopeComputeSettings : DPMSettings
+{
+	//settings by compute
+	float atten, pixel_ratio, stage_overlap;
+	float qsbQDICShearAngle, qsbQDICShearDx;
+	static void header(std::ostream& os = std::cout);
+	friend std::ostream& operator<<(std::ostream& os, const ScopeComputeSettings& ia);
+	ScopeComputeSettings(float Attenuation, float PixelRatio, float QsbQDICShear, float qsbQDICShearDx, float StageOverlap, const DPMSettings& dpm_settings) : DPMSettings(dpm_settings),
+		atten(Attenuation), pixel_ratio(PixelRatio), stage_overlap(StageOverlap), qsbQDICShearAngle(QsbQDICShear), qsbQDICShearDx(qsbQDICShearDx)
+	{
+
+	}
+	ScopeComputeSettings() : ScopeComputeSettings(1, 0, 0, 0, 0, DPMSettings()) { ; }
+	friend bool operator== (const ScopeComputeSettings &a, const ScopeComputeSettings &b)
+	{
+		return (a.atten == b.atten) && (a.pixel_ratio == b.pixel_ratio) && (a.qsbQDICShearAngle == b.qsbQDICShearAngle);
+	}
+	friend bool operator!= (const ScopeComputeSettings &a, const ScopeComputeSettings &b)
+	{
+		return !(a == b);
+	}
+};
+
+struct FrameMetaData_BeforeAcquire
+{
+	RenderSettings render_settings;
+	ScopeLoc xyz;
+	int pattern;
+	FrameMetaData_BeforeAcquire(const RenderSettings& RenderSettings, const ScopeLoc& XYZ, int Pattern) :render_settings(RenderSettings), xyz(XYZ), pattern(Pattern) {}
+	FrameMetaData_BeforeAcquire() :FrameMetaData_BeforeAcquire(RenderSettings(), ScopeLoc(), 0) {}
+};
+
+struct FrameMetaData : FrameMetaData_BeforeAcquire
+{
+	std::chrono::microseconds timestamp;//todo change units?
+	explicit FrameMetaData(const FrameMetaData_BeforeAcquire& before, std::chrono::microseconds Timestamp) : FrameMetaData_BeforeAcquire(before), timestamp(Timestamp) {}
+	FrameMetaData() : FrameMetaData(FrameMetaData_BeforeAcquire(), std::chrono::microseconds(0)) {}
+};
+
+template <typename T>
+struct CameraFrame : FrameSize, FrameMetaData, ComputeResult
+{
+	T* img;
+	bool transpose_;
+	explicit CameraFrame(T* Data, const FrameSize& Info, const FrameMetaData& MetaData, bool Transpose = false, const ComputeResult& Result = ComputeResult()) :
+		FrameSize(Info), FrameMetaData(MetaData), ComputeResult(Result), img(Data), transpose_(Transpose)
+	{
+	}
+	CameraFrame() : CameraFrame(nullptr, FrameSize(), FrameMetaData(), false) {};
+	bool isValid() const
+	{
+		auto frame_size = static_cast<FrameSize>(this[0]);
+		return (img != nullptr) && (FrameSize() != frame_size);
+	}
+};
+
+struct ROIName
+{
+	unsigned int roi, time, repeat;
+	unsigned int row, column, page;
+	unsigned int chan;//index of a vector, not an internal number
+	explicit ROIName(unsigned int ROInum, unsigned int Timenum, unsigned int Repeat, unsigned int Chan, unsigned int Column, unsigned int Row, unsigned int Page) :
+		roi(ROInum), time(Timenum), repeat(Repeat), row(Row), column(Column), page(Page), chan(Chan) {};
+	static std::ostream& header(std::ostream& os = std::cout);
+	friend std::ostream& operator<<(std::ostream& os, const ROIName& ia);
+
+	ROIName() : roi(0), time(0), repeat(0), row(0), column(0), page(0), chan(0) { ; }
+};
+
+struct RawIoWork_meta_data : ROIName
+{
+	size_t progress_id;
+	PhaseRetreival retrieval;
+	PhaseProcessing processing;
+	RawIoWork_meta_data(const ROIName& Name, size_t Progress_ID, PhaseRetreival Retrieval, PhaseProcessing Processing)
+		: ROIName(Name), progress_id(Progress_ID), retrieval(Retrieval), processing(Processing) {}
+	RawIoWork_meta_data() :RawIoWork_meta_data(ROIName(), 0, PhaseRetreival::Camera, PhaseProcessing::None) {}
+	std::wstring getPath(const std::wstring& dir, int pattern) const;
+	std::wstring getPath(int pattern) const;
+};
+
+template <typename T>
+struct RawIoWork final : CameraFrame<T>, RawIoWork_meta_data
+{
+	RawIoWork(const CameraFrame<T>& Frame, const RawIoWork_meta_data& Metadata) : CameraFrame(Frame), RawIoWork_meta_data(Metadata) {};
+	RawIoWork() : RawIoWork(CameraFrame<T>(), RawIoWork_meta_data()) {};
+	std::wstring getPath(const std::wstring& dir) const
+	{
+		return RawIoWork_meta_data::getPath(dir, pattern);
+	}
+	std::wstring getPath() const
+	{
+		//hack hack
+		return RawIoWork_meta_data::getPath(pattern);
+	}
+};
+
+enum class SLIMBG_Mode { background_whole, background_value };
+struct SLIMBG_settings
+{
+	float slim_bg_value;// I also don't think a collision can happen with this, although maybe when we retrieve the old value but I think reads are orders on the x86
+	SLIMBG_Mode slim_bg_mode;
+	SLIMBG_settings(float slim_bg_value, SLIMBG_Mode bg_mode) : slim_bg_value(slim_bg_value), slim_bg_mode(bg_mode) {}
+	SLIMBG_settings() : SLIMBG_settings(0, SLIMBG_Mode::background_whole) {}
+	friend bool operator== (const SLIMBG_settings &a, const SLIMBG_settings &b)
+	{
+		return (a.slim_bg_mode == b.slim_bg_mode) && (a.slim_bg_value == b.slim_bg_value);
+	}
+};
+
+struct BandPassSettings
+{
+	bool do_band_pass, remove_dc;
+	float min_dx, max_dx;
+	float min_dy, max_dy;
+	BandPassSettings(float MinDx, float MaxDx, float min_dy, float max_dy, bool Remove_dc, bool DoBandPass) : do_band_pass(DoBandPass), remove_dc(Remove_dc), min_dx(MinDx), max_dx(MaxDx), min_dy(min_dy), max_dy(max_dy) {};
+	BandPassSettings() :BandPassSettings(0, 0, 0, 0, false, false) {};
+	friend bool operator== (const BandPassSettings &a, const BandPassSettings &b)
+	{
+		return (a.do_band_pass == b.do_band_pass) && (a.min_dx == b.min_dx) && (a.max_dx == b.max_dx) && (a.min_dy == b.min_dy) && (a.max_dy == b.max_dy) && (a.remove_dc == b.remove_dc);
+	}
+	friend bool operator!= (const BandPassSettings &a, const BandPassSettings &b)
+	{
+		return !(a == b);
+	}
+};
+
+enum class DenoiseMode { DenoiseOff, DenoiseAverage, DenoiseMedian };
+const std::map<DenoiseMode, int> DenoiseMode_cycles = {
+	{ DenoiseMode::DenoiseOff, 1 }, { DenoiseMode::DenoiseAverage, 5 }, { DenoiseMode::DenoiseMedian, 5 } };
+
+struct atomic_retrieval
+{
+	//so people made fun of me on the internet for the possibility of having jagged/torn writes (which doesn't happen on x86 you fucking nutt jobs!) and I had to write this.
+	std::atomic<PhaseRetreival> retrieval;
+<<<<<<< HEAD
+	explicit atomic_retrieval(PhaseRetreival test) : retrieval(test){}
+=======
+	explicit atomic_retrieval(PhaseRetreival test) : retrieval(test) {}
+>>>>>>> 38fc614f046e2256583dd308f2266af51b64c5a4
+	atomic_retrieval(const atomic_retrieval& other) { operator=(other); };
+	atomic_retrieval& operator=(const atomic_retrieval& other) {
+		this->retrieval = other.retrieval.load();
+		return *this;
+	};
+};
+
+struct ComputeSettings : CameraConfig, CaptureTimes, BandPassSettings, ScopeComputeSettings, SLIMBG_settings, MaterialInfo, atomic_retrieval
+{
+	DenoiseMode denoise_mode;
+	PhaseProcessing processing;
+	bool doFT;
+	bool is_zero_compute() const
+	{
+		//this means we candireclty write the pointer rather than do comutation. 
+		return (doFT == false && processing == PhaseProcessing::None && denoise_mode == DenoiseMode::DenoiseOff);
+	}
+	ComputeSettings(const CaptureTimes& capture_times, const CameraConfig& cam, const BandPassSettings& band, const ScopeComputeSettings& scope_comp, const SLIMBG_settings& Bg, const MaterialInfo& Material, DenoiseMode Denoise, PhaseRetreival Retrieval, PhaseProcessing Processing, bool FT) :CameraConfig(cam), CaptureTimes(capture_times), BandPassSettings(band), ScopeComputeSettings(scope_comp), SLIMBG_settings(Bg), MaterialInfo(Material), atomic_retrieval(Retrieval), denoise_mode(Denoise), processing(Processing), doFT(FT) {}
+	ComputeSettings() :ComputeSettings(CaptureTimes(), CameraConfig(), BandPassSettings(), ScopeComputeSettings(), SLIMBG_settings(), MaterialInfo(), DenoiseMode::DenoiseOff, PhaseRetreival::Camera, PhaseProcessing::None, true) {}
+	friend bool operator== (const ComputeSettings &a, const ComputeSettings &b)
+	{
+		auto check = (reinterpret_cast<const CameraConfig&>(a) == reinterpret_cast<const CameraConfig&>(b));
+		check &= (reinterpret_cast<const BandPassSettings&>(a) == reinterpret_cast<const BandPassSettings&>(b));
+		check &= (reinterpret_cast<const ScopeComputeSettings&>(a) == reinterpret_cast<const ScopeComputeSettings&>(b));
+		check &= (reinterpret_cast<const SLIMBG_settings&>(a) == reinterpret_cast<const SLIMBG_settings&>(b));
+		return  check;
+	}
+};
+
+
+struct SLM_BeamSettings
+{
+	float qsbX1, qsbY1, qsbSLIMID, qsbSLIMOD;
+	SLM_BeamSettings(float QsbX1, float QsbY1, float QsbSLIMID, float QsbSLIMOD) : qsbX1(QsbX1), qsbY1(QsbY1), qsbSLIMID(QsbSLIMID), qsbSLIMOD(QsbSLIMOD)
+	{
+
+	}
+	SLM_BeamSettings() : SLM_BeamSettings(0, 0, 0, 0) {};
+	friend bool operator== (const SLM_BeamSettings &a, const SLM_BeamSettings &b)
+	{
+		//return (0 == memcmp(&a, &b, sizeof(SLMPatternSettings))); //messes up due to padding ?
+		return
+			(a.qsbX1 == b.qsbX1) && (a.qsbY1 == b.qsbY1) &&
+			(a.qsbSLIMID == b.qsbSLIMID) && (a.qsbSLIMOD == b.qsbSLIMOD);
+	}
+	friend bool operator!= (const SLM_BeamSettings &a, const SLM_BeamSettings &b)
+	{
+		return !(a == b);
+	}
+};
+
+struct SLIM_PatternSettings
+{
+	float qsbE, qsbF;
+	SLIM_PatternSettings(float E, float F) : qsbE(E), qsbF(F) {}
+	SLIM_PatternSettings() : SLIM_PatternSettings(0, 0) {}
+	friend bool operator== (const SLIM_PatternSettings &a, const SLIM_PatternSettings &b)
+	{
+		return (a.qsbE == b.qsbE) && (a.qsbF == b.qsbF);
+	}
+	friend bool operator!= (const SLIM_PatternSettings &a, const SLIM_PatternSettings &b)
+	{
+		return !(a == b);
+	}
+};
+
+struct Star_PatternSettings
+{
+	float qsbInnerAngle, qsbOuterAngle, qsbMasterRotation;
+	Star_PatternSettings(float QsbInnerAngle, float QsbsbOuterAngle, float QsbMasterRotation) :
+		qsbInnerAngle(QsbInnerAngle), qsbOuterAngle(QsbsbOuterAngle), qsbMasterRotation(QsbMasterRotation)
+	{
+
+	}
+	Star_PatternSettings() : Star_PatternSettings(0, 0, 0) {}
+	friend bool operator== (const Star_PatternSettings &a, const Star_PatternSettings &b)
+	{
+		return (a.qsbInnerAngle == b.qsbInnerAngle) && (a.qsbOuterAngle == b.qsbOuterAngle) && (a.qsbMasterRotation == b.qsbMasterRotation);
+	}
+	friend bool operator!= (const Star_PatternSettings &a, const Star_PatternSettings &b)
+	{
+		return !(a == b);
+	}
+};
+
+struct Rings_PatternSettings
+{
+	float qsbPeriod, qsbThickness;
+	Rings_PatternSettings(float QsbPeriod, float QsbThickness) :
+		qsbPeriod(QsbPeriod), qsbThickness(QsbThickness)
+	{
+
+	}
+	Rings_PatternSettings() : Rings_PatternSettings(0, 0) {}
+	friend bool operator== (const Rings_PatternSettings &a, const Rings_PatternSettings &b)
+	{
+		return (a.qsbPeriod == b.qsbPeriod) && (a.qsbThickness == b.qsbThickness);
+	}
+	friend bool operator!= (const Rings_PatternSettings &a, const Rings_PatternSettings &b)
+	{
+		return !(a == b);
+	}
+};
+
+struct PhaseShift_PatternSettings
+{
+	float qsbPat0, qsbPat1, qsbPat2, qsbPat3, qsbPatRef;
+	int qsbPatOffset;
+	PhaseShift_PatternSettings(float P0, float P1, float P2, float P3, float Ref, int Offset) :
+		qsbPat0(P0), qsbPat1(P1), qsbPat2(P2), qsbPat3(P3), qsbPatRef(Ref), qsbPatOffset(Offset)
+	{
+
+	}
+	PhaseShift_PatternSettings() : PhaseShift_PatternSettings(0, 0, 0, 0, 0, 0) {}
+	//
+	friend bool operator== (const PhaseShift_PatternSettings &a, const PhaseShift_PatternSettings &b)
+	{
+		return (a.qsbPat0 == b.qsbPat0) && (a.qsbPat1 == b.qsbPat1) && (a.qsbPat2 == b.qsbPat2) && (a.qsbPat3 == b.qsbPat3) && (a.qsbPatRef == b.qsbPatRef) && (a.qsbPatOffset == b.qsbPatOffset);
+	}
+	friend bool operator!= (const PhaseShift_PatternSettings &a, const PhaseShift_PatternSettings &b)
+	{
+		return !(a == b);
+	}
+};
+
+struct Custom_PatternSettings
+{
+	std::vector<std::string> patterns;//should be wstring, but ceral has some problems with this
+	Custom_PatternSettings()
+	{
+		patterns = { "1", "2", "3", "4" };
+	}
+	friend bool operator== (const Custom_PatternSettings &a, const Custom_PatternSettings &b)
+	{
+		return a.patterns == b.patterns;
+	}
+};
+
+struct SLMPatternSettings : SLIM_PatternSettings, Star_PatternSettings, Rings_PatternSettings, PhaseShift_PatternSettings, Custom_PatternSettings, SLM_BeamSettings
+{
+	enum class SLM_MODE { SLM_SLIM = 0, SLM_QDIC = 1, SLM_Star = 2, SLM_Rings = 3, SLM_Symbols = 4, SLM_Custom = 5, SLM_DPM_DEMUX = 6 };
+	//Not using QSettings because that would pull in too many libraries...
+	SLM_MODE slm_mode;
+	SLMPatternSettings(const SLIM_PatternSettings& Pats, const Star_PatternSettings& Star, const Rings_PatternSettings& Rings, const PhaseShift_PatternSettings& Shifts, const Custom_PatternSettings& CustomPatternSettings, const SLM_BeamSettings& BeamSettings, SLM_MODE Mode) :SLIM_PatternSettings(Pats), Star_PatternSettings(Star), Rings_PatternSettings(Rings), PhaseShift_PatternSettings(Shifts), Custom_PatternSettings(CustomPatternSettings), SLM_BeamSettings(BeamSettings), slm_mode(Mode)
+	{
+	}
+
+	SLMPatternSettings() : SLMPatternSettings(SLIM_PatternSettings(), Star_PatternSettings(), Rings_PatternSettings(), PhaseShift_PatternSettings(), Custom_PatternSettings(), SLM_BeamSettings(), SLMPatternSettings::SLM_MODE::SLM_SLIM)
+	{
+	}
+	friend bool operator== (const SLMPatternSettings &a, const SLMPatternSettings &b)
+	{
+
+		auto check = true;
+		check &= (reinterpret_cast<const SLIM_PatternSettings&>(a) == reinterpret_cast<const SLIM_PatternSettings&>(b));
+		check &= (reinterpret_cast<const Star_PatternSettings&>(a) == reinterpret_cast<const Star_PatternSettings&>(b));
+		check &= (reinterpret_cast<const Rings_PatternSettings&>(a) == reinterpret_cast<const Rings_PatternSettings&>(b));
+		check &= (reinterpret_cast<const PhaseShift_PatternSettings&>(a) == reinterpret_cast<const PhaseShift_PatternSettings&>(b));
+		return check;
+	}
+	friend bool operator!= (const SLMPatternSettings &a, const SLMPatternSettings &b)
+	{
+		return !(a == b);
+	}
+};
+
+struct SettingsFile : SLMPatternSettings, ScopeComputeSettings
+{
+	SettingsFile() : SLMPatternSettings(SLMPatternSettings()), ScopeComputeSettings(ScopeComputeSettings()) {}
+	SettingsFile(const SLMPatternSettings& pattern, const ScopeComputeSettings& scope, const std::wstring& path) : SLMPatternSettings(pattern), ScopeComputeSettings(scope), file_path(path) {};
+	explicit SettingsFile(const std::wstring& path);
+	std::wstring file_path;//optional
+	bool write(const std::wstring& path);
+	bool write() { return write(file_path); }
+	friend bool operator== (const SettingsFile &a, const SettingsFile &b)
+	{
+		return (static_cast<const SLMPatternSettings&>(a) == static_cast<const SLMPatternSettings&>(b))
+			&& (static_cast<const ScopeComputeSettings&>(a) == static_cast<const ScopeComputeSettings&>(b));
+	}
+	friend bool operator!= (const SettingsFile &a, const SettingsFile &b)
+	{
+		return !(a == b);
+	}
+	bool isValid() const
+	{
+		return pixel_ratio > 0.01;
+	}
+};
+
+struct ChannelSettings final : ComputeSettings, SLMPatternSettings, RenderSettings  //Master setting
+{
+	// Ask not why the structkure is big, but why should the structure not be big!
+	int current_pattern, mek;//Goes to a ScopeSettings, 1 is always SLIM
+	ChannelSettings() : ChannelSettings(ComputeSettings(), 0, 0, 0, SLMPatternSettings(), RenderSettings()) {};
+
+	explicit ChannelSettings(const ComputeSettings& comp, int  Current_pattern, int Cycles, int Mek_idx, const SLMPatternSettings& pattern_settings, const RenderSettings& Render);
+	//
+	explicit ChannelSettings(const CameraConfig& Cam, const CaptureTimes& Times, const SLIMBG_settings& Bg, const DPMSettings& Dpm_guess, const MaterialInfo& Material, PhaseRetreival What, int Mek_idx);
+	//
+	explicit ChannelSettings(const std::wstring& path);
+	void write(const std::wstring& path);//https://github.com/nabijaczleweli/Cwepper/blob/master/src/resource/config.cpp
+
+	friend bool operator== (const ChannelSettings &a, const ChannelSettings &b)
+	{
+		return (static_cast<const ComputeSettings&>(a) == static_cast<const ComputeSettings&>(b))
+			&& (static_cast<const CaptureTimes&>(a) == static_cast<const CaptureTimes&>(b))
+			&& (static_cast<const SLMPatternSettings&>(a) == static_cast<const SLMPatternSettings&>(b))
+			&& (static_cast<const RenderSettings&>(a) == static_cast<const RenderSettings&>(b));
+	}
+	bool valid_config() const;
+	int cycles() const
+	{
+		return cycles_;
+	}
+	void set_cycles(int cycles)
+	{
+		cycles_ = std::max(cycles, 1);
+	}
+	int cycles_;
+	std::wstring getLabelLong() const;
+	std::wstring getLabelShort() const;
+};
+
+struct HistogramInfo
+{
+	std::vector<int> histo;
+	const static int histobins = 256;
+	float stdev, median, bot, top;//these are in histogram bin indexes
+	HistogramInfo() : stdev(0), median(0), bot(0), top(0)
+	{
+		histo.resize(histobins);
+	}
+	void fillStats(float min, float max, int n);
+};
+
+enum class ScopeAction { CAPTURE = 0, FOCUS = 1 };
+struct CaptureItem : ROIName, ScopeDelays, ScopeLoc
+{
+	ScopeAction action;
+	//
+	explicit CaptureItem(ROIName N, ScopeDelays DEL,
+		ScopeLoc LOC, ScopeAction A = ScopeAction::CAPTURE)
+		: ROIName(N), ScopeDelays(DEL), ScopeLoc(LOC), action(A)
+	{
+	}
+	CaptureItem() : action(ScopeAction::CAPTURE) {};
+
+	static std::ostream& header(std::ostream& os = std::cout);
+	friend std::ostream& operator<<(std::ostream& os, const CaptureItem& ia);
+	static void WriteCaptureLogLine(std::ostream& os, const CaptureItem& ia, size_t number, const std::chrono::microseconds& timestamp);
+
+};
+
+struct MicroscopeState : ScopeLoc
+{
+	int scope_channel;//internal index
+	MicroscopeState() : scope_channel(0) {};
+	explicit MicroscopeState(const ScopeLoc& Loc, int ScopeChannel) :
+		ScopeLoc(Loc), scope_channel(ScopeChannel)
+	{
+
+	}
+};
+
+struct MicroscopeMoveAction final : MicroscopeState
+{
+	std::chrono::microseconds move_delay;
+	explicit MicroscopeMoveAction(const MicroscopeState& Loc, std::chrono::microseconds MoveDelay) :
+		MicroscopeState(Loc), move_delay(MoveDelay)
+	{
+	}
+};
+
+struct FocusRegion // that tilt correction thing
+{
+	ScopeLoc p00, p10, p11, p01;
+	bool useInterpolation;
+	static
+		void getZ(const ScopeLoc& a, const ScopeLoc& b, const ScopeLoc& c, ScopeLoc& d)
+	{//CForm
+		auto x1 = a.x;
+		auto y1 = a.y;
+		auto z1 = a.z;
+		auto x2 = b.x;
+		auto y2 = b.y;
+		auto z2 = b.z;
+		auto x3 = c.x;
+		auto y3 = c.y;
+		auto z3 = c.z;
+		auto x4 = d.x;
+		auto y4 = d.y;
+		d.z = (x3*y2*z1 - x4*y2*z1 -
+			x2*y3*z1 + x4*y3*z1 +
+			x2*y4*z1 - x3*y4*z1 -
+			x3*y1*z2 + x4*y1*z2 +
+			x1*y3*z2 - x4*y3*z2 -
+			x1*y4*z2 + x3*y4*z2 +
+			x2*y1*z3 - x4*y1*z3 -
+			x1*y2*z3 + x4*y2*z3 +
+			x1*y4*z3 - x2*y4*z3) /
+			(x2*y1 - x3*y1 - x1*y2 +
+				x3*y2 + x1*y3 - x2*y3);
+	}
+
+	explicit FocusRegion(double z = 0, bool interp = false) : useInterpolation(interp)
+	{
+		ScopeLoc blank(0, 0, 0);
+		p00 = blank;
+		p10 = blank;
+		p11 = blank;
+		p01 = blank;
+		setZ(z);
+	}
+	void setZ(double z)
+	{
+		p00.z = z;
+		p10.z = z;
+		p11.z = z;
+		p01.z = z;
+	}
+	void addZ(double addme)
+	{
+		p00.z += addme;
+		p10.z += addme;
+		p11.z += addme;
+		p01.z += addme;
+	}
+};
+
+struct GridSteps
+{
+	double xstep, ystep;
+	int xsteps, ysteps;
+	GridSteps() : GridSteps(0, 0, 0, 0) {};
+	GridSteps(double Xstep, double Ystep, int Xsteps, int Ysteps) :
+		xstep(Xstep), ystep(Ystep), xsteps(Xsteps), ysteps(Ysteps)
+	{}
+};
+
+struct EmailMsg
+{
+	std::string email, msg, subj;
+	EmailMsg() : EmailMsg("", "Experiment Done!", "") {};
+	EmailMsg(const std::string& Email, const std::string& MSG, const std::string& SUBJ) :
+		email(Email), msg(MSG), subj(SUBJ) {};
+	bool isValid() const
+	{
+		return (email.size() > 6);//do some checks on validity here
+	}
+};
+
+class Scope;
+struct Acquisition
+{
+	EmailMsg msg;
+	std::wstring output_dir;
+	std::vector<ChannelSettings> ch;
+	std::vector<CaptureItem> cap;
+	std::chrono::microseconds predictTime(size_t at, int pattern);
+	ChannelSettings& getChan(size_t at);
+	//int getFirstComputeIdx() const;
+	MicroscopeState getMicroscopeState(size_t in);
+	size_t size() const;
+	void clear();
+	friend std::ostream& operator<<(std::ostream& os, const Acquisition& ia);
+	friend std::ostream& operator<<(std::ostream& os, const Acquisition* ia);
+	bool is_valid_for_burst();
+};
+
+struct IOSettings
+{
+	bool io_show_files;
+	bool io_show_cmd_progress;
+	explicit IOSettings(bool ShowFiles, bool ShowCMDProgress) : io_show_files(ShowFiles), io_show_cmd_progress(ShowCMDProgress)
+	{
+
+	}
+	IOSettings() : IOSettings(false, true)
+	{
+
+	}
+	bool write(const std::wstring& filename);
+	explicit IOSettings(const std::wstring& filename);
+};
+enum class AcquireModes { Sync, Async };
+
+#ifdef QT_DLL
+#include <QMetaType> 
+Q_DECLARE_METATYPE(ScopeLoc)
+Q_DECLARE_METATYPE(ScopeDelays)
+Q_DECLARE_METATYPE(CaptureTimes)
+Q_DECLARE_METATYPE(ROIName)
+Q_DECLARE_METATYPE(CaptureItem)
+Q_DECLARE_METATYPE(CameraConfig)
+Q_DECLARE_METATYPE(ChannelSettings)
+Q_DECLARE_METATYPE(AcquireModes)
+Q_DECLARE_METATYPE(FrameSize)
+Q_DECLARE_METATYPE(RenderDimensions)
+Q_DECLARE_METATYPE(std::chrono::microseconds);
+Q_DECLARE_METATYPE(DPMBackground_host);
+#endif
+
+#endif SCOPESTATE_H
